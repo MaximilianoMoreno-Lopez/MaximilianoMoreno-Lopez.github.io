@@ -6,7 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-<p style="text-align: justify;">
+
 
 
 
@@ -23,4 +23,3 @@ In recognition of my academic record, I was awarded the National Excellence Awar
 Feel free to [contact me](mailto:maximiliano.moreno-lopez@psemail.eu), or connect with me on [LinkedIn](https://www.linkedin.com/in/maximiliano-moreno-l%C3%B3pez-854101175/).
 
 Gracias for stopping by :)
-</p>
