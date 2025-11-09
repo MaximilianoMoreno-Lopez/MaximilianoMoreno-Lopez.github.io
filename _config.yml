@@ -31,12 +31,12 @@ author:
   # Academic websites
   academia         :
   arxiv            :
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=1bhaQUYAAAAJ&hl=en"
   inspire-hep      :
   impactstory      :
-  orcid            : "https://orcid.org/yourorcidurl"
+  orcid            : 
   semantic         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : 
   researchgate     :
   scopus           :
 
@@ -50,7 +50,7 @@ author:
 
   # Social media
   artstation       :
-  bluesky          : "bsky.app"
+  bluesky          : 
   facebook         :
   flickr           :
   foursquare       :
@@ -59,7 +59,7 @@ author:
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/maximiliano-moreno-l%C3%B3pez-854101175/"
   mastodon         :
   medium           :
   pinterest        :
