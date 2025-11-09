@@ -21,7 +21,7 @@ repository               : "MaximilianoMoreno-Lopez/MaximilianoMoreno-Lopez.gith
 author:
   name             : "Maximiliano Moreno-López"
   avatar           : "profile.png"
-  pronouns         : "he/him"
+  pronouns         : #"he/him"
   bio              : "PhD candidate at Paris School of Economics (Paris 1 Panthéon-Sorbonne)"
   location         : "Paris, France"
   employer         : "Ramón Areces Scholar"
