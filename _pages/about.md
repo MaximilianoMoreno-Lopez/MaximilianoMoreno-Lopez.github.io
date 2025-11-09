@@ -1,19 +1,17 @@
 ---
 permalink: /
-title: "Maximiliano Moreno-López"
+title: "Welcome!"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-## Welcome
+I’m **Maximiliano Moreno-López**, a PhD candidate at the **Paris School of Economics** – Université Paris 1 Panthéon-Sorbonne, supported by the Fundación Ramón Areces.
 
-I’m **Maximiliano Moreno-López**, a PhD candidate at the **Paris School of Economics – Université Paris 1 Panthéon-Sorbonne**, supported by the **Ramón Areces Foundation**.
+My research lies at the intersection of **environmental and energy policy** & **inequality**. I’m particularly interested in how climate change and environmental policy affects income distribution, and how economic modeling can guide fair and effective decarbonization strategies.
 
-My research lies at the intersection of **environmental and energy policy**, **inequality**, and **computable general equilibrium (CGE) modeling**. I’m particularly interested in how climate policy affects income distribution, and how economic modeling can guide fair and effective decarbonization strategies.
-
-I work under the supervision of [**Lucas Chancel**](https://lucaschancel.com/en/), [**Katheline Schubert**](https://www.parisschoolofeconomics.eu/personnes/katheline-schubert/), and [**Mouez Fodha**](https://www.parisschoolofeconomics.eu/personnes/mouez-fodha/), contributing to research that evaluates the **distributional and macroeconomic impacts** of environmental transition policies.
+I work under the supervision of [**Lucas Chancel**](https://lucaschancel.com/en/), [**Katheline Schubert**](https://www.parisschoolofeconomics.eu/personnes/katheline-schubert/) and [**Mouez Fodha**](https://www.parisschoolofeconomics.eu/personnes/mouez-fodha/), contributing to research that evaluates the **distributional and macroeconomic impacts** of environmental transition policies.
 
 ---
 
