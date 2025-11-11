@@ -22,9 +22,9 @@ author:
   name             : "Maximiliano Moreno-López"
   avatar           : "foto maxi.png"
   pronouns         : #"he/him"
-  bio              : "PhD candidate at Paris School of Economics (Paris 1 Panthéon-Sorbonne)"
+  bio              : #"PhD candidate at Paris School of Economics (Paris 1 Panthéon-Sorbonne)"
   location         : "Paris, France"
-  employer         : "Ramón Areces Scholar"
+  employer         : "Paris School of Economics"
   uri              :
   email            : "maximiliano.moreno-lopez@psemail.eu"
 
