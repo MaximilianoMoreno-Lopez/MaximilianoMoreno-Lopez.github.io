@@ -1,0 +1,52 @@
+/* ==========================================================================
+   MODERN THEME — Maximiliano Moreno-López
+   ========================================================================== */
+
+/* Color palette — environmental economics inspired */
+$gray                       : #6b7280;
+$dark-gray                  : #1f2937;
+$darker-gray                : #111827;
+$light-gray                 : #9ca3af;
+$lighter-gray               : #f3f4f6;
+
+$accent-primary             : #0d9488;  /* teal-600 */
+$accent-hover               : #0f766e;  /* teal-700 */
+$accent-light               : #ccfbf1;  /* teal-100 */
+$accent-warm                : #f59e0b;  /* amber-500 for highlights */
+
+/* Standard colors */
+$danger-color               : #ef4444;
+$info-color                 : $accent-primary;
+$notice-color               : $gray;
+$success-color              : #10b981;
+$warning-color              : #f59e0b;
+
+/* Layout */
+$border-radius              : 6px;
+$box-shadow                 : 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 64px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 260px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Light theme variables */
+:root {
+    --global-base-color                 : #{$gray};
+    --global-bg-color                   : #fafafa;
+    --global-footer-bg-color            : #f9fafb;
+    --global-border-color               : #e5e7eb;
+    --global-dark-border-color          : #d1d5db;
+    --global-code-background-color      : #f3f4f6;
+    --global-code-text-color            : #{$darker-gray};
+    --global-fig-caption-color          : #{$light-gray};
+    --global-link-color                 : #{$accent-primary};
+    --global-link-color-hover           : #{$accent-hover};
+    --global-link-color-visited         : #{$accent-hover};
+    --global-masthead-link-color        : #{$dark-gray};
+    --global-masthead-link-color-hover  : #{$accent-primary};
+    --global-text-color                 : #{$dark-gray};
+    --global-text-color-light           : #{$light-gray};
+    --global-thead-color                : #{$lighter-gray};
+}

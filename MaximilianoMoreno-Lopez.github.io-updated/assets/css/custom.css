@@ -1,0 +1,271 @@
+/* ==========================================================================
+   CUSTOM STYLES — Modern Academic Theme
+   Maximiliano Moreno-López
+   ========================================================================== */
+
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* --- Typography --- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-weight: 600;
+  color: #111827;
+}
+
+.page__title {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+
+.page__content p {
+  line-height: 1.75;
+  color: #374151;
+}
+
+/* --- Masthead / Navigation --- */
+.masthead {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.masthead__inner-wrap {
+  max-width: 1200px;
+}
+
+.greedy-nav a {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+}
+
+.greedy-nav a:hover {
+  color: #0d9488 !important;
+}
+
+.greedy-nav .site-title {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #111827 !important;
+}
+
+/* --- Author Profile / Sidebar --- */
+.author__avatar img {
+  border-radius: 50%;
+  border: 3px solid #e5e7eb;
+  transition: border-color 0.3s ease;
+  max-width: 150px;
+}
+
+.author__avatar img:hover {
+  border-color: #0d9488;
+}
+
+.author__name {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.author__bio {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #6b7280;
+}
+
+.author__urls-wrapper a {
+  font-size: 0.85rem;
+}
+
+.author__urls-wrapper a:hover {
+  color: #0d9488;
+}
+
+/* --- Links --- */
+a {
+  color: #0d9488;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0f766e;
+}
+
+.page__content a {
+  border-bottom: 1px solid rgba(13, 148, 136, 0.2);
+  transition: border-color 0.2s ease;
+}
+
+.page__content a:hover {
+  border-bottom-color: #0d9488;
+}
+
+/* --- Archive items (publication, teaching, talks lists) --- */
+.archive__item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.archive__item:last-child {
+  border-bottom: none;
+}
+
+.archive__item-title {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.archive__item-title a {
+  border-bottom: none !important;
+}
+
+.archive__item-excerpt {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* --- Page content section headings --- */
+.page__content h2 {
+  font-size: 1.4rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #0d9488;
+  margin-top: 2.5rem;
+  display: inline-block;
+}
+
+.page__content h2::after {
+  content: none;
+}
+
+/* --- HR separator --- */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, #0d9488, #e5e7eb);
+  margin: 2rem 0;
+}
+
+/* --- Footer --- */
+.page__footer {
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.page__footer a {
+  color: #0d9488;
+}
+
+/* --- Buttons --- */
+.btn {
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.btn--primary,
+.btn--success {
+  background-color: #0d9488;
+  border-color: #0d9488;
+}
+
+.btn--primary:hover,
+.btn--success:hover {
+  background-color: #0f766e;
+  border-color: #0f766e;
+}
+
+/* --- Publication category headers --- */
+.archive h2 {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-weight: 600;
+  color: #111827;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #0d9488;
+  padding-bottom: 0.3rem;
+  display: inline-block;
+}
+
+/* --- Tags --- */
+.page__taxonomy-item {
+  background: #f0fdfa;
+  color: #0d9488;
+  border: 1px solid #99f6e4;
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.page__taxonomy-item:hover {
+  background: #0d9488;
+  color: #fff;
+}
+
+/* --- Selection color --- */
+::selection {
+  background: #ccfbf1;
+  color: #0f766e;
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 768px) {
+  .page__title {
+    font-size: 1.6rem;
+  }
+  
+  .page__content h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* --- Smooth scroll --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Accent bar at top of page --- */
+body::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #0d9488, #f59e0b, #0d9488);
+  z-index: 9999;
+}
+
+/* --- Code blocks --- */
+pre {
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+code {
+  font-size: 0.88em;
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
