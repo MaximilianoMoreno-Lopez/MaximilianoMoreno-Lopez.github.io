@@ -1,5 +1,5 @@
 ---
-title: "Microeconomics II"
+title: "Microeconomics I"
 collection: teaching
 type: "Teaching Assistant"
 permalink: /teaching/uah-microeconomics

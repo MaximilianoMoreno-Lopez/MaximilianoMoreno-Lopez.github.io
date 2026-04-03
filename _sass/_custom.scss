@@ -214,6 +214,8 @@ a:hover {
   font-size: 0.95rem;
   margin-bottom: 0.1rem;
   line-height: 1.4;
+  text-transform: none !important;
+  letter-spacing: normal !important;
 }
 
 .archive__item-title a {
