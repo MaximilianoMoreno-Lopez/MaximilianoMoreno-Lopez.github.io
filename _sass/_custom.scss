@@ -14,10 +14,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.page__content p {
-  text-align: justify;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Serif 4', Georgia, serif !important;
   font-weight: 600;
@@ -33,6 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 .page__content p {
   line-height: 1.75;
   color: #374151;
+  text-align: justify !important;
 }
 
 /* --- Masthead / Navigation --- */
