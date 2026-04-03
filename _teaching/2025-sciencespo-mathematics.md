@@ -1,5 +1,5 @@
 ---
-title: "Mathematics & Economics I (Undergraduate)"
+title: "Mathematics & Economics I"
 collection: teaching
 type: "Lecturer"
 permalink: /teaching/sciencespo-mathematics
@@ -8,6 +8,4 @@ date: 2025-09-01
 location: "Paris, France"
 ---
 
-Lecturer at Sciences Po Paris since September 2025.
-
-**Courses:** Mathematics; Economics I.
+Mathematics; Economics I.
