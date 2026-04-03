@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:scholar.google.com)",
+      "WebSearch",
+      "WebFetch(domain:www.uco.es)",
+      "WebFetch(domain:www.bde.es)"
+    ]
+  }
+}
