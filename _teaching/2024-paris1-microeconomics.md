@@ -1,5 +1,5 @@
 ---
-title: "Microeconomics I"
+title: "Microeconomics II"
 collection: teaching
 type: "Teaching Assistant"
 permalink: /teaching/paris1-microeconomics

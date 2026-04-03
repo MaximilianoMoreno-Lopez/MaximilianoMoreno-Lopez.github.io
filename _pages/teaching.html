@@ -7,8 +7,9 @@ author_profile: true
 
 {% include base_path %}
 
-<h2 class="teaching-level">Undergraduate</h2>
-
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="teaching-section">
+  <h2 class="teaching-level">Undergraduate</h2>
+  {% for post in site.teaching reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+</div>
