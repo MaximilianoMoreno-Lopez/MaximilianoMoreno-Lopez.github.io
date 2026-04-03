@@ -16,3 +16,5 @@ I work under the supervision of [**Lucas Chancel**](https://lucaschancel.com/en/
 Outside research, I run [**Estrellas del Sur**](https://www.instagram.com/estrellasdelsur_ong/), a non-profit I founded in Córdoba that works with young people from disadvantaged backgrounds. We provide quality education, mentoring, and support their access to international opportunities and scholarships — because where you're born shouldn't determine how far you go.
 
 Feel free to [contact me](mailto:maximiliano.moreno-lopez@psemail.eu) or connect on [LinkedIn](https://www.linkedin.com/in/maximiliano-moreno-l%C3%B3pez-854101175/).
+
+¡Gracias for stopping by!
