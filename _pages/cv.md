@@ -46,7 +46,7 @@ redirect_from:
 
 * **Predoctoral Fellow** — Universidad de Alcalá *(Sep 2022 – Sep 2023)*
   * Research on minimum wage, monopsony markets, poverty and inequality (with Olga Cantó, Mariña Fernández-Salgado & Sébastien Fontenay)
-  * Teaching Assistant: Microeconomics I (UAH) · Microeconomics II (Paris 1)
+  * Teaching Assistant: Microeconomics I
 
 * **External Associate** — Consejo Económico Social de España *(Jan 2023 – Jun 2023)*
   * Labour market and employment policies for the CES annual report
