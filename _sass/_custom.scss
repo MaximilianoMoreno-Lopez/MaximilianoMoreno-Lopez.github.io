@@ -240,11 +240,9 @@ a:hover {
 
 /* --- Teaching section wrapper --- */
 .teaching-section {
-  margin-top: 1.5rem;
-}
-
-h2.teaching-level {
-  margin-bottom: 1rem !important;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
 }
 
 .archive__item-venue {
@@ -274,11 +272,19 @@ h2.teaching-level {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #9ca3af;
-  border-bottom: 1px solid #e5e7eb !important;
+  border-bottom: none !important;
   display: block;
   margin-top: 0;
-  margin-bottom: 0.6rem;
-  padding-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0;
+}
+
+/* Safety net: teaching titles never behave as links */
+.teaching-section .archive__item-title a {
+  color: #111827 !important;
+  cursor: default !important;
+  pointer-events: none !important;
+  border-bottom: none !important;
 }
 
 .archive__item-excerpt {
@@ -298,6 +304,12 @@ h2.teaching-level {
   border-bottom: 2px solid #0d9488;
   padding-bottom: 0.3rem;
   display: inline-block;
+  margin-bottom: 0.3rem !important;
+}
+
+/* Remove the big hr gap between category title and items */
+.archive h2:not(.teaching-level) + hr {
+  margin: 0.3rem 0 0.5rem 0;
 }
 
 /* --- HR --- */
