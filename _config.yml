@@ -19,12 +19,12 @@ author:
   linkedin         : "maximiliano-moreno-l%C3%B3pez-854101175/"
 
 publication_category:
+  conferences:
+    title: 'Policy Reports & Conference Papers'
   manuscripts:
     title: 'Journal Articles'
   working_papers:
     title: 'Working Papers & Work in Progress'
-  conferences:
-    title: 'Policy Reports & Conference Papers'
 
 teaser                   :
 breadcrumbs              : false
