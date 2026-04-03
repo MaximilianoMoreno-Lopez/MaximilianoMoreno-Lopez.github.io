@@ -1,6 +1,7 @@
 ---
 title: "Microeconomics II"
 collection: teaching
+no_link: true
 type: "Teaching Assistant"
 permalink: /teaching/paris1-microeconomics
 venue: "Université Panthéon-Sorbonne (Paris 1)"

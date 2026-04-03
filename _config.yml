@@ -24,7 +24,7 @@ publication_category:
   manuscripts:
     title: 'Journal Articles'
   working_papers:
-    title: 'Working Papers & Work in Progress'
+    title: 'Work in Progress'
 
 teaser                   :
 breadcrumbs              : false

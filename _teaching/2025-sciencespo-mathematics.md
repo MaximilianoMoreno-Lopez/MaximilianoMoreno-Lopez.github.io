@@ -1,6 +1,7 @@
 ---
 title: "Mathematics"
 collection: teaching
+no_link: true
 type: "Lecturer"
 permalink: /teaching/sciencespo-mathematics
 venue: "Sciences Po Paris"

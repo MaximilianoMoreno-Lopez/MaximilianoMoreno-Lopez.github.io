@@ -1,6 +1,7 @@
 ---
 title: "Microeconomics I"
 collection: teaching
+no_link: true
 type: "Teaching Assistant"
 permalink: /teaching/uah-microeconomics
 venue: "Universidad de Alcalá"

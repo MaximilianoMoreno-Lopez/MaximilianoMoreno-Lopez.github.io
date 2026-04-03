@@ -1,6 +1,7 @@
 ---
 title: "Economics I"
 collection: teaching
+no_link: true
 type: "Lecturer"
 permalink: /teaching/sciencespo-economics
 venue: "Sciences Po Paris"
