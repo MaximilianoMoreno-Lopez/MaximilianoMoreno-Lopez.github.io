@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm **Maximiliano Moreno-López**, a PhD candidate at the **Paris School of Economics** – Université Paris 1 Panthéon-Sorbonne, funded by the Fundación Ramón Areces.
+I'm **Maximiliano Moreno-López**, a PhD candidate at the [**Paris School of Economics**](https://www.parisschoolofeconomics.eu/en/) – Université Paris 1 Panthéon-Sorbonne, funded by the Fundación Ramón Areces.
 
 My research focuses on the distributional effects of climate and energy policies: who bears the costs, and how much. Most of my work combines microsimulation and CGE modelling to study how policies like the **EU Emissions Trading System (ETS2)** hit households differently across the income distribution and across European regions. I'm currently building a **map of environmental inequality in France** using micro-level data, tracking how exposure to climate shocks and energy costs varies by income, geography, and household type.
 
