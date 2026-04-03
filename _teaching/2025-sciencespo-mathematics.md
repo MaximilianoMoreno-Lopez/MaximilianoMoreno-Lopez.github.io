@@ -8,6 +8,6 @@ date: 2025-09-01
 location: "Paris, France"
 ---
 
-Lecturer at Sciences Po Paris since September 2025, alongside my PhD at the Paris School of Economics.
+Lecturer at Sciences Po Paris since September 2025.
 
 **Courses:** Mathematics; Economics I.
