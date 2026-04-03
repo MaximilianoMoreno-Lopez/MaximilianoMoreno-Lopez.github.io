@@ -98,12 +98,14 @@ Climate policy & inequality · EU Emissions Trading System (ETS2) · Energy pove
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
+{% comment %}
 ## Talks & Presentations
 
   <ul>{% for post in site.talks reversed %}
     {% include archive-single-talk-cv.html  %}
   {% endfor %}</ul>
-  
+{% endcomment %}
+
 ## Teaching
 
   <ul>{% for post in site.teaching reversed %}
