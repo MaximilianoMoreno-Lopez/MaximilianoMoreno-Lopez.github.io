@@ -3,7 +3,7 @@ title: "Simulating the Impact of Tariffs on Latin American Economies"
 collection: publications
 category: conferences
 permalink: /publication/2024-bde-informe-latam-s2
-excerpt: 'Co-authored simulation (p. 18) of the macroeconomic impact of tariff increases on Latin American economies, using the GTAP general equilibrium framework.'
+excerpt: 'Macroeconomic impact of tariff increases on Latin American economies, using the GTAP general equilibrium framework.'
 date: 2024-10-15
 venue: 'Banco de España — Informe de Economía Latinoamericana'
 paperurl: 'https://www.bde.es/f/webbe/SES/Secciones/Publicaciones/InformeEconomiaLatinoamericana/2024/S2/fich/EconomiaLatinoamericana_022024.pdf'
