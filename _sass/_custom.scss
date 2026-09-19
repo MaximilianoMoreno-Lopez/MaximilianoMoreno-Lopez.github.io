@@ -449,6 +449,13 @@ code {
   padding: 0;
 }
 
+/* One block per course on /resources/, divided from the next */
+.resource-group + .resource-group {
+  margin-top: 2.2rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid #e5e7eb;
+}
+
 .resource-item {
   padding: 0 0 0 0.9rem;
   margin-bottom: 1.1rem;

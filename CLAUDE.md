@@ -125,6 +125,8 @@ Student-facing notes and handouts. They live on their own page, `/resources/` (`
 
 The handout itself is a normal page in `_pages/` (e.g. `_pages/resource-derivatives.md`) with a matching `permalink`.
 
+`/resources/` groups entries under a heading per course. The section order is the `course_order` list at the top of `_pages/resources.html` (`"Mathematics,Economics"`); a course with no entries is skipped, and anything whose `course` is not on that list lands under **Other**.
+
 **Maths on content pages:** MathJax 3 is loaded in `_includes/footer/custom.html`, but kramdown turns `$$...$$` into `<script type="math/tex">`, which MathJax 3 no longer reads — the formula silently disappears. Write display maths as a raw HTML block instead:
 
 ```html

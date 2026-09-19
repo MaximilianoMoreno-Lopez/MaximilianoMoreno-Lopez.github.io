@@ -9,19 +9,57 @@ author_profile: true
 
 <p class="resource-intro">Notes and handouts I write for my students at Sciences Po. Free to use and share. If you spot a mistake, <a href="mailto:maximiliano.moreno-lopez@psemail.eu">tell me</a>.</p>
 
-{% if site.data.resources and site.data.resources.size > 0 %}
-<ul class="resource-list">
-  {% for resource in site.data.resources %}
-    {% if resource.url contains '://' %}
-      {% assign resource_href = resource.url %}
-    {% else %}
-      {% assign resource_href = resource.url | prepend: base_path %}
-    {% endif %}
-    <li class="resource-item">
-      <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
-      {% if resource.course %}<p class="resource-course">{{ resource.course }}</p>{% endif %}
-      {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
-    </li>
-  {% endfor %}
-</ul>
+{% comment %} Sections appear in this order; a course with no resources is skipped. {% endcomment %}
+{% assign course_order = "Mathematics,Economics" | split: "," %}
+
+{% for course in course_order %}
+  {% assign items = site.data.resources | where: "course", course %}
+  {% if items.size > 0 %}
+    <div class="resource-group">
+      <h2 class="teaching-level">{{ course }}</h2>
+      <ul class="resource-list">
+        {% for resource in items %}
+          {% if resource.url contains '://' %}
+            {% assign resource_href = resource.url %}
+          {% else %}
+            {% assign resource_href = resource.url | prepend: base_path %}
+          {% endif %}
+          <li class="resource-item">
+            <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
+            {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{% comment %} Anything whose course is not listed above still shows up. {% endcomment %}
+{% assign leftover_count = 0 %}
+{% for resource in site.data.resources %}
+  {% unless course_order contains resource.course %}
+    {% assign leftover_count = leftover_count | plus: 1 %}
+  {% endunless %}
+{% endfor %}
+
+{% if leftover_count > 0 %}
+  <div class="resource-group">
+    <h2 class="teaching-level">Other</h2>
+    <ul class="resource-list">
+      {% for resource in site.data.resources %}
+        {% unless course_order contains resource.course %}
+          {% if resource.url contains '://' %}
+            {% assign resource_href = resource.url %}
+          {% else %}
+            {% assign resource_href = resource.url | prepend: base_path %}
+          {% endif %}
+          <li class="resource-item">
+            <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
+            {% if resource.course %}<p class="resource-course">{{ resource.course }}</p>{% endif %}
+            {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
+          </li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
+  </div>
 {% endif %}
