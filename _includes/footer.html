@@ -2,10 +2,7 @@
 
 {% comment %} Fixed bottom bar, present on every page. Styles: "Footer" in _sass/_custom.scss. {% endcomment %}
 <div class="site-footer">
-  <div class="site-footer__id">
-    <span class="site-footer__name">{{ site.author.name }}</span>
-    <span class="site-footer__role">{{ site.author.bio }} · &copy; {{ site.time | date: '%Y' }}</span>
-  </div>
+  <p class="site-footer__id"><span class="site-footer__name">{{ site.author.name }}</span><span class="site-footer__role"> · {{ site.author.bio }}</span></p>
   <p class="site-footer__motto"><a href="https://www.parisschoolofeconomics.eu/en/"><em>Economics serving society</em><span class="site-footer__motto-who"> · Paris School of Economics</span></a></p>
   <ul class="site-footer__links">
     <li><a href="mailto:{{ site.author.email }}">Email</a></li>
