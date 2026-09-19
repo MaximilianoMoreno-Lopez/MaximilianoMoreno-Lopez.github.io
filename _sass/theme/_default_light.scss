@@ -1,29 +1,30 @@
 /* ==========================================================================
-   MODERN THEME — Maximiliano Moreno-López
+   LIGHT THEME — ink and terracotta
+   Design tokens for the whole site live here (light) and in _default_dark.scss
+   (dark). _custom.scss only ever references the CSS custom properties below,
+   so a colour change is a one-line edit and dark mode needs no overrides.
    ========================================================================== */
 
-/* Color palette — environmental economics inspired */
+/* Sass variables the theme's own partials read. Keep them identical in
+   _default_dark.scss: both files are imported, and the later one wins. */
 $gray                       : #6b7280;
 $dark-gray                  : #1f2937;
-$darker-gray                : #111827;
+$darker-gray                : #0b1f3a;
 $light-gray                 : #9ca3af;
-$lighter-gray               : #f3f4f6;
+$lighter-gray               : #f3efe8;
 
-$accent-primary             : #0d9488;  /* teal-600 */
-$accent-hover               : #0f766e;  /* teal-700 */
-$accent-light               : #ccfbf1;  /* teal-100 */
-$accent-warm                : #f59e0b;  /* amber-500 for highlights */
+$accent-primary             : #c2571a;
+$accent-hover               : #9e4512;
+$accent-light               : #f3e3d6;
 
-/* Standard colors */
-$danger-color               : #ef4444;
+$danger-color               : #dc2626;
 $info-color                 : $accent-primary;
 $notice-color               : $gray;
-$success-color              : #10b981;
-$warning-color              : #f59e0b;
+$success-color              : #15803d;
+$warning-color              : #b45309;
 
-/* Layout */
-$border-radius              : 6px;
-$box-shadow                 : 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+$border-radius              : 8px;
+$box-shadow                 : 0 1px 2px rgba(11, 31, 58, 0.06);
 $global-transition          : all 0.2s ease-in-out;
 $masthead-height            : 64px;
 $navicon-width              : 28px;
@@ -31,22 +32,36 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 260px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Light theme variables */
 :root {
+    /* design tokens */
+    --bg            : #fbf8f3;   /* warm off-white, never pure white */
+    --bg-glass      : rgba(251, 248, 243, 0.88);   /* masthead over content */
+    --surface       : #ffffff;   /* cards, sidebar */
+    --text          : #1f2937;
+    --heading       : #0b1f3a;   /* ink navy */
+    --muted         : #6b7280;
+    --border        : #e7e1d6;   /* warm hairline */
+    --accent        : #c2571a;   /* terracotta, the only accent */
+    --accent-hover  : #9e4512;
+    --accent-soft   : #f3e3d6;
+    --code-bg       : #f3efe8;
+    --selection     : #f3e3d6;
+
+    /* names the theme's partials use, mapped onto the tokens */
     --global-base-color                 : #{$gray};
-    --global-bg-color                   : #fafafa;
-    --global-footer-bg-color            : #f9fafb;
-    --global-border-color               : #e5e7eb;
-    --global-dark-border-color          : #d1d5db;
-    --global-code-background-color      : #f3f4f6;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : #{$light-gray};
-    --global-link-color                 : #{$accent-primary};
-    --global-link-color-hover           : #{$accent-hover};
-    --global-link-color-visited         : #{$accent-hover};
-    --global-masthead-link-color        : #{$dark-gray};
-    --global-masthead-link-color-hover  : #{$accent-primary};
-    --global-text-color                 : #{$dark-gray};
-    --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$lighter-gray};
+    --global-bg-color                   : var(--bg);
+    --global-footer-bg-color            : var(--bg);
+    --global-border-color               : var(--border);
+    --global-dark-border-color          : var(--border);
+    --global-code-background-color      : var(--code-bg);
+    --global-code-text-color            : var(--heading);
+    --global-fig-caption-color          : var(--muted);
+    --global-link-color                 : var(--accent);
+    --global-link-color-hover           : var(--accent-hover);
+    --global-link-color-visited         : var(--accent);
+    --global-masthead-link-color        : var(--heading);
+    --global-masthead-link-color-hover  : var(--accent);
+    --global-text-color                 : var(--text);
+    --global-text-color-light           : var(--muted);
+    --global-thead-color                : var(--code-bg);
 }

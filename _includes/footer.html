@@ -1,5 +1,18 @@
 {% include base_path %}
 
-<div class="page__footer-copyright">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}
+<div class="site-footer">
+  <div class="site-footer__row">
+    <div class="site-footer__id">
+      <span class="site-footer__name">{{ site.author.name }}</span>
+      <span class="site-footer__role">{{ site.author.bio }} · {{ site.author.location }}</span>
+    </div>
+    <ul class="site-footer__links">
+      <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+      <li><a href="{{ site.author.googlescholar }}">Google Scholar</a></li>
+      <li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a></li>
+      <li><a href="{{ base_path }}/cv/">CV</a></li>
+    </ul>
+  </div>
+  <div class="site-footer__copy">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}</div>
 </div>

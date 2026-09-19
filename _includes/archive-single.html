@@ -42,7 +42,8 @@
 
     {% unless is_wip %}
       {% if post.collection == 'teaching' %}
-        <p class="archive__item-venue"> {{ post.type }}, {% if post.venue_url %}<a href="{{ post.venue_url }}" class="venue-link"><i>{{ post.venue }}</i></a>{% else %}<i>{{ post.venue }}</i>{% endif %}, {{ teaching_year }} </p>
+        <p class="archive__item-venue">{{ post.type }}, {% if post.venue_url %}<a href="{{ post.venue_url }}" class="venue-link">{{ post.venue }}</a>{% else %}{{ post.venue }}{% endif %}</p>
+        <span class="archive__item-years">{{ teaching_year }}</span>
       {% elsif post.collection == 'publications' %}
         <p class="archive__item-venue">Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
       {% endif %}
@@ -54,11 +55,11 @@
 
     {% unless is_wip or is_teaching %}
       {% if post.citation and post.paperurl %}
-        <p class="archive__item-links">{{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
+        <p class="archive__item-links">{{ post.citation }}<br /><a href="{{ post.paperurl }}" class="pill">PDF</a></p>
       {% elsif post.citation %}
         <p class="archive__item-links">{{ post.citation }}</p>
       {% elsif post.paperurl %}
-        <p class="archive__item-links"><a href="{{ post.paperurl }}">Download Paper</a></p>
+        <p class="archive__item-links"><a href="{{ post.paperurl }}" class="pill">PDF</a></p>
       {% endif %}
     {% endunless %}
 
