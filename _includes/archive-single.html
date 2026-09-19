@@ -17,6 +17,11 @@
   {% assign is_teaching = true %}
 {% endif %}
 
+{% assign teaching_year = post.date | default: "1900-01-01" | date: "%Y" %}
+{% if post.since and post.since != teaching_year %}
+  {% assign teaching_year = post.since | append: "–" | append: teaching_year %}
+{% endif %}
+
 {% assign is_wip = false %}
 {% if post.category == 'working_papers' %}
   {% assign is_wip = true %}
@@ -37,7 +42,7 @@
 
     {% unless is_wip %}
       {% if post.collection == 'teaching' %}
-        <p class="archive__item-venue"> {{ post.type }}, {% if post.venue_url %}<a href="{{ post.venue_url }}" class="venue-link"><i>{{ post.venue }}</i></a>{% else %}<i>{{ post.venue }}</i>{% endif %}, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+        <p class="archive__item-venue"> {{ post.type }}, {% if post.venue_url %}<a href="{{ post.venue_url }}" class="venue-link"><i>{{ post.venue }}</i></a>{% else %}<i>{{ post.venue }}</i>{% endif %}, {{ teaching_year }} </p>
       {% elsif post.collection == 'publications' %}
         <p class="archive__item-venue">Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p>
       {% endif %}

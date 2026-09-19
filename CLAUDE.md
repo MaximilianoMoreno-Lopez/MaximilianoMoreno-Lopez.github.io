@@ -87,6 +87,8 @@ location: "City, Country"
 ---
 ```
 
+`date` is the **most recent** term taught (it also drives the sort order). For a course taught over several years, add an optional `since: "YYYY"` and the listings show a range (`2025–2026`) instead of a single year.
+
 ---
 
 #### `_talks/` — Presentations & Seminars

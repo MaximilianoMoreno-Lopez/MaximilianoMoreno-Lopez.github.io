@@ -6,6 +6,11 @@
   {% assign title = post.title %}
 {% endif %}
 
+{% assign teaching_year = post.date | default: "1900-01-01" | date: "%Y" %}
+{% if post.since and post.since != teaching_year %}
+  {% assign teaching_year = post.since | append: "–" | append: teaching_year %}
+{% endif %}
+
 {% assign is_wip = false %}
 {% if post.category == 'working_papers' %}
   {% assign is_wip = true %}
@@ -29,7 +34,7 @@
       {% endif %}
     </h3>
     {% if is_teaching %}
-      <p class="archive__item-excerpt">{{ post.type }}, {% if post.venue_url %}<a href="{{ post.venue_url }}" class="venue-link"><i>{{ post.venue }}</i></a>{% else %}<i>{{ post.venue }}</i>{% endif %}, {{ post.date | date: "%Y" }}</p>
+      <p class="archive__item-excerpt">{{ post.type }}, {% if post.venue_url %}<a href="{{ post.venue_url }}" class="venue-link"><i>{{ post.venue }}</i></a>{% else %}<i>{{ post.venue }}</i>{% endif %}, {{ teaching_year }}</p>
     {% elsif is_wip %}
       <p class="archive__item-excerpt"><i>Work in progress</i></p>
     {% elsif post.citation %}
