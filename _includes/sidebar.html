@@ -1,12 +1,8 @@
 {% include base_path %}
 
-{% comment %}
-  The author profile no longer renders here: inner pages are a single reading
-  column, with the name in the masthead and contact links in the fixed bottom
-  bar. Only an explicit page.sidebar (image / text / nav) still shows.
-{% endcomment %}
-{% if page.sidebar %}
+{% if page.author_profile or layout.author_profile or page.sidebar %}
   <div class="sidebar sticky">
+    {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
     {% for s in page.sidebar %}
       {% if s.image %}
         <img src=
