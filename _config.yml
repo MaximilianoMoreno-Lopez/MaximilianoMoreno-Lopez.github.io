@@ -7,10 +7,13 @@ url                      : "https://maximilianomoreno-lopez.github.io"
 baseurl                  : ""
 repository               : "MaximilianoMoreno-Lopez/MaximilianoMoreno-Lopez.github.io"
 
+og_image                 : "og-image.jpg"
+
 author:
   name             : "Maximiliano Moreno-López"
-  avatar           : "foto maxi.png"
-  bio              : "PhD candidate · Paris School of Economics"
+  avatar           : "maxi-avatar.jpg"
+  bio              : "PhD candidate, Paris School of Economics"
+  bio_2            : "Lecturer, Sciences Po"
   location         : "Paris, France"
   employer         : "Paris School of Economics"
   employer_url     : "https://www.parisschoolofeconomics.eu/en/"
