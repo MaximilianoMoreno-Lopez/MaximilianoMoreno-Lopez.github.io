@@ -13,6 +13,53 @@
 </script>
 
 
+<!-- Email links: mailto: fails silently on machines with no mail client, so a click
+     shows the address with a copy button and keeps the mail-app option as a link. -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var pop = null;
+    function close() { if (pop) { pop.remove(); pop = null; } }
+    function copy(text, btn) {
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy address'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { fallback(text, done); });
+      } else { fallback(text, done); }
+    }
+    function fallback(text, done) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      ta.remove();
+    }
+    document.addEventListener('click', function (ev) {
+      var link = ev.target.closest && ev.target.closest('a[href^="mailto:"]');
+      if (!link) { if (pop && !ev.target.closest('.email-pop')) { close(); } return; }
+      if (link.closest('.email-pop')) { return; }          /* the "Open mail app" link inside the card */
+      ev.preventDefault();
+      close();
+      var address = link.getAttribute('href').replace(/^mailto:/, '').split('?')[0];
+      pop = document.createElement('div');
+      pop.className = 'email-pop';
+      pop.setAttribute('role', 'dialog');
+      pop.innerHTML = '<span class="email-pop__address"></span>' +
+        '<div class="email-pop__actions"><button type="button" class="email-pop__copy">Copy address</button>' +
+        '<a class="email-pop__open" href="mailto:' + address + '">Open mail app</a></div>';
+      pop.querySelector('.email-pop__address').textContent = address;
+      document.body.appendChild(pop);
+      pop.querySelector('.email-pop__copy').addEventListener('click', function () { copy(address, this); });
+      var r = link.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
+      var left = Math.max(12, Math.min(r.left, window.innerWidth - w - 12));
+      var top = r.top - h - 10;
+      if (top < 12) { top = r.bottom + 10; }
+      pop.style.left = left + 'px'; pop.style.top = top + 'px';
+      pop.querySelector('.email-pop__copy').focus();
+    });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') { close(); } });
+    window.addEventListener('scroll', close, { passive: true });
+  });
+</script>
+
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
