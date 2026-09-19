@@ -2,5 +2,5 @@
 # url: internal permalink (e.g. /resources/derivatives/) or an external link / PDF in /files/
 - title: "Derivatives: A Refresher"
   course: "Mathematics"
-  description: "What a derivative actually measures, the rules you need, and how economists read them — marginal cost, elasticity and optimisation."
+  description: "What a derivative measures, the rules you need, and how economists use them: marginal cost, elasticity, optimisation."
   url: /resources/derivatives/
