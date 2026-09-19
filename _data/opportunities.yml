@@ -3,6 +3,7 @@
 #
 # Fields
 #   title, url        name and official page
+#   short             optional shorter name for the side list
 #   lang              "en" or "es": programmes open to everyone are written in English,
 #                     Spanish schemes (Spanish nationality required) in Spanish
 #   what              one or two sentences: what you get
@@ -30,6 +31,7 @@
   note: "I have run Erasmus+ youth projects with Estrellas del Sur; write to me if you want to know how these programmes look from the inside."
 - group: "Scholarships"
   title: "Becas Fundación Ramón Areces para estudios de posgrado en el extranjero"
+  short: "Fundación Ramón Areces"
   url: https://www.fundacionareces.es/fundacionareces/es/convocatorias/
   lang: es
   what: "Beca para cursar un máster o un doctorado fuera de España en Ciencias Sociales, con una línea específica de Economía. Cubre 2.100 € netos al mes, matrícula, un viaje de ida y vuelta al año y seguro médico. Un año para máster (prorrogable) y doce meses para doctorado, con hasta tres prórrogas."
@@ -38,6 +40,7 @@
   note: "Es la beca que financia mi doctorado en la Paris School of Economics. Si estás preparando la solicitud, escríbeme."
 - group: "Scholarships"
   title: "Becas de posgrado en el extranjero de la Fundación \"la Caixa\""
+  short: "Fundación \"la Caixa\""
   url: https://fundacionlacaixa.org/es/becas-posgrado-extranjero
   lang: es
   what: "Un centenar de becas al año para máster, doctorado o investigación predoctoral en universidades del Espacio Europeo de Educación Superior, Norteamérica o Asia-Pacífico, hasta 24 meses. Todas las áreas salvo los MBA. Matrícula, dotación mensual y viajes cubiertos."
@@ -45,6 +48,7 @@
   when: "Convocatoria anual con plazo a mediados de enero. El proceso tiene varias fases, con entrevistas en primavera, así que conviene empezar en otoño."
 - group: "Scholarships"
   title: "Ayudas del Banco de España para estudios en economía y finanzas"
+  short: "Banco de España"
   url: https://www.bde.es/wbe/es/sobre-banco/trabajar-banco/becas-investigacion-ayudas-bde/
   lang: es
   what: "Hasta diez ayudas al año para cursar un posgrado oficial en economía, finanzas o innovación tecnológica aplicada a estos campos, en España o en el extranjero. El programa incluye estancias temporales en el propio Banco para aplicar lo aprendido."
@@ -53,6 +57,7 @@
   note: "Trabajé en el Banco de España entre 2024 y 2025; preguntadme lo que queráis sobre cómo es desde dentro."
 - group: "Traineeships"
   title: "ECB Traineeship Programme"
+  short: "ECB traineeship"
   url: https://www.ecb.europa.eu/careers/what-we-offer/traineeship/html/index.en.html
   lang: en
   what: "Paid traineeships of three to six months in Frankfurt, extendable to twelve, across economics, statistics, banking supervision and more. The grant is about 1,170 euros a month (higher for PhD-level posts), and the ECB pays your accommodation if you relocate from more than 50 km away."
