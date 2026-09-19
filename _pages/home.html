@@ -9,79 +9,105 @@ redirect_from:
 ---
 
 {% include base_path %}
+{% assign pubs = site.publications | sort: "date" | reverse %}
+{% assign courses = site.teaching | sort: "date" | reverse %}
 
-<section class="hero">
-  <div class="hero__text">
-    <p class="eyebrow">Economist · PhD candidate, Paris School of Economics</p>
-    <h1 class="hero__title">Who pays for the climate transition, and how to make it fair.</h1>
-    <p class="hero__lede">I study the distributional effects of climate and energy policy: how measures like the EU ETS2 land on households across incomes and regions, using microsimulation and general-equilibrium models.</p>
-    <div class="hero__actions">
-      <a class="button button--solid" href="{{ base_path }}/publications/">Read the research <span class="arrow">&rarr;</span></a>
+<div class="profile">
+
+  <aside class="profile__side">
+    <img class="profile__photo" src="{{ base_path }}/images/maxi-hero.jpg" alt="Maximiliano Moreno-López" width="960" height="1200" fetchpriority="high">
+    <h1 class="profile__name">Maximiliano Moreno-López</h1>
+    <p class="profile__role">PhD candidate in Economics · Paris</p>
+
+    <ul class="affil">
+      <li>
+        <span class="eyebrow">Studying at</span>
+        <a href="https://www.parisschoolofeconomics.eu/en/">Paris School of Economics</a>
+        <span class="affil__what">PhD with <a href="https://www.pantheonsorbonne.fr">Université Paris 1 Panthéon-Sorbonne</a>, 2024 to 2028</span>
+      </li>
+      <li>
+        <span class="eyebrow">Teaching at</span>
+        <a href="https://www.sciencespo.fr">Sciences Po Paris</a>
+        <span class="affil__what">Lecturer in Mathematics and Microeconomics</span>
+      </li>
+      <li>
+        <span class="eyebrow">Fellow at</span>
+        <a href="https://www.ecologie.gouv.fr/">Ministère de la Transition Écologique</a>
+        <span class="affil__what">Climate policy simulations at the CGDD</span>
+      </li>
+      <li>
+        <span class="eyebrow">Funded by</span>
+        <a href="https://www.fundacionareces.es/">Fundación Ramón Areces</a>
+        <span class="affil__what">Predoctoral fellowship</span>
+      </li>
+    </ul>
+
+    <div class="profile__actions">
+      <a class="button button--solid" href="{{ base_path }}/publications/">Read the research</a>
       <a class="button button--ghost" href="{{ base_path }}/cv/">Curriculum vitae</a>
-      <a class="button button--text" href="mailto:{{ site.author.email }}">Email</a>
     </div>
-  </div>
-  <figure class="hero__photo">
-    <img src="{{ base_path }}/images/maxi-hero.jpg" alt="Maximiliano Moreno-López" width="960" height="1200" fetchpriority="high">
-  </figure>
-</section>
+    <ul class="profile__links">
+      <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+      <li><a href="{{ site.author.googlescholar }}">Google Scholar</a></li>
+      <li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a></li>
+    </ul>
+  </aside>
 
-<section class="home__section">
-  <p class="eyebrow">Now</p>
-  <div class="now">
-    <div class="now__item">
-      <span class="now__role">PhD candidate</span>
-      <span class="now__where"><a href="https://www.parisschoolofeconomics.eu/en/">Paris School of Economics</a> · Université Paris 1 Panthéon-Sorbonne</span>
-      <p>Fundación Ramón Areces fellow. Supervised by <a href="https://lucaschancel.com/en/">Lucas Chancel</a>, <a href="https://www.parisschoolofeconomics.eu/personnes/katheline-schubert/">Katheline Schubert</a> and <a href="https://www.parisschoolofeconomics.eu/personnes/mouez-fodha/">Mouez Fodha</a>.</p>
-    </div>
-    <div class="now__item">
-      <span class="now__role">Lecturer</span>
-      <span class="now__where"><a href="https://www.sciencespo.fr">Sciences Po Paris</a></span>
-      <p>Mathematics; Microeconomics: Information, Design, and Institutions; Economics I.</p>
-    </div>
-    <div class="now__item">
-      <span class="now__role">PhD Fellow</span>
-      <span class="now__where">French Ministry for the Ecological Transition</span>
-      <p>Macroeconomic simulations of climate policy at the General Commission for Sustainable Development. Previously at the Bank of Spain and the Spanish Economic and Social Council.</p>
-    </div>
-  </div>
-  <p class="motto">The motto at PSE is economics serving society. It is as good a summary as any of what I try to do.</p>
-</section>
+  <main class="profile__main">
 
-<section class="home__section">
-  {% assign pubs = site.publications | sort: "date" | reverse %}
-  {% assign courses = site.teaching | sort: "date" | reverse %}
-  <div class="doors">
-    <a class="door" href="{{ base_path }}/publications/">
-      <h2 class="door__title">Research <span class="arrow">&rarr;</span></h2>
-      <p class="door__lead">{{ site.publications | size }} papers and policy reports on climate policy, inequality and the energy transition.</p>
-      <ul class="door__list">
-        {% for p in pubs limit: 2 %}<li>{{ p.title }}</li>{% endfor %}
-      </ul>
-    </a>
-    <a class="door" href="{{ base_path }}/teaching/">
-      <h2 class="door__title">Teaching <span class="arrow">&rarr;</span></h2>
-      <p class="door__lead">Sciences Po, Université Paris 1 and Universidad de Alcalá. Currently:</p>
-      <ul class="door__list">
-        {% for c in courses limit: 3 %}<li>{{ c.title }}</li>{% endfor %}
-      </ul>
-    </a>
-    <a class="door" href="{{ base_path }}/resources/">
-      <h2 class="door__title">Resources <span class="arrow">&rarr;</span></h2>
-      <p class="door__lead">Notes and 144 solved exercises for my students, free to use.</p>
-      <ul class="door__list">
-        <li>Derivatives and Lagrange multipliers, explained</li>
-        <li>Three practice sheets with click-to-reveal solutions</li>
-      </ul>
-    </a>
-  </div>
-</section>
+    <section>
+      <p class="lead">I'm Maximiliano, a PhD candidate at the <a href="https://www.parisschoolofeconomics.eu/en/">Paris School of Economics</a> and a lecturer at <a href="https://www.sciencespo.fr">Sciences Po</a>. I study who pays for the climate transition, and how to make it fair.</p>
+      <div class="prose">
+        <p>My research looks at the distributional effects of climate and energy policy: how measures like the EU Emissions Trading System for buildings and transport (ETS2) reach households across incomes and regions. Most of it combines microsimulation with computable general-equilibrium models. Right now I am building a map of environmental inequality in France from micro-level data, tracking how exposure to climate shocks and energy costs varies by income, geography and household type.</p>
+        <p>I work under the supervision of <a href="https://lucaschancel.com/en/">Lucas Chancel</a>, <a href="https://www.parisschoolofeconomics.eu/personnes/katheline-schubert/">Katheline Schubert</a> and <a href="https://www.parisschoolofeconomics.eu/personnes/mouez-fodha/">Mouez Fodha</a>. Before the PhD I was an economist at the <a href="https://www.bde.es/wbe/en/">Bank of Spain</a> and at the Spanish Economic and Social Council.</p>
+      </div>
+    </section>
 
-<section class="home__section about">
-  <p class="eyebrow">About</p>
-  <div class="about__body">
-    <p>I am a PhD candidate at the Paris School of Economics and Université Paris 1 Panthéon-Sorbonne, funded by the Fundación Ramón Areces. My research asks who bears the costs of climate and energy policy, and how much. Most of it combines microsimulation with computable general-equilibrium models to trace how policies such as the EU Emissions Trading System for buildings and transport (ETS2) reach households across the income distribution and across European regions. I am currently building a map of environmental inequality in France from micro-level data: how exposure to climate shocks and energy costs varies by income, geography and household type.</p>
-    <p>Before the PhD I worked as an economist at the <a href="https://www.bde.es/wbe/en/">Bank of Spain</a> and at the Spanish Economic and Social Council. Outside research I run <a href="https://estrellasdelsur.eu/">Estrellas del Sur</a>, a non-profit I founded in Córdoba that gives young people from disadvantaged backgrounds quality education, mentoring and a route to international opportunities and scholarships.</p>
-    <p class="about__quote">Because where you're born shouldn't determine how far you go.</p>
-  </div>
-</section>
+    <section>
+      <span class="eyebrow">Recent research</span>
+      <ul class="pubs">
+        {% for p in pubs limit: 4 %}
+          <li>
+            <span class="pubs__title">{% if p.paperurl and p.paperurl != "" %}<a href="{{ p.paperurl }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</span>
+            <span class="pubs__venue">{{ p.venue }}</span>
+            <span class="pubs__year">{{ p.date | date: "%Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+      <a class="more" href="{{ base_path }}/publications/">All research</a>
+    </section>
+
+    <section class="two">
+      <div>
+        <h2>Teaching</h2>
+        <ul class="mini">
+          {% for c in courses limit: 3 %}
+            {% assign y = c.date | date: "%Y" %}
+            {% if c.since and c.since != y %}{% assign y = c.since | append: "–" | append: y %}{% endif %}
+            <li><span>{{ c.title }}</span><span>{{ y }}</span></li>
+          {% endfor %}
+        </ul>
+        <a class="more" href="{{ base_path }}/teaching/">All courses</a>
+      </div>
+      <div>
+        <h2>Resources for students</h2>
+        <ul class="mini">
+          {% for r in site.data.resources limit: 3 %}
+            <li><span>{{ r.title }}</span><span>{{ r.course }}</span></li>
+          {% endfor %}
+        </ul>
+        <a class="more" href="{{ base_path }}/resources/">All resources</a>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Beyond research</span>
+      <div class="prose">
+        <p>Outside the PhD I run <a href="https://estrellasdelsur.eu/">Estrellas del Sur</a>, a non-profit I founded in Córdoba that gives young people from disadvantaged backgrounds quality education, mentoring and a route to international opportunities and scholarships.</p>
+        <p class="quote">Because where you're born shouldn't determine how far you go.</p>
+      </div>
+    </section>
+
+  </main>
+</div>

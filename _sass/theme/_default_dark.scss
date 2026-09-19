@@ -33,17 +33,17 @@ $sidebar-screen-min-width   : 1024px;
 /* Only the tokens change; the --global-* names in _default_light.scss point
    at them with var(), so they follow automatically. */
 html[data-theme="dark"] {
-    --bg            : #0f172a;
-    --bg-glass      : rgba(15, 23, 42, 0.88);
-    --surface       : #1e293b;
-    --text          : #e7e2d8;
-    --heading       : #f5f1ea;
-    --muted         : #94a3b8;
-    --border        : #334155;
+    --bg            : #181614;   /* warm graphite, not slate blue */
+    --bg-glass      : rgba(24, 22, 20, 0.88);
+    --surface       : #221f1c;
+    --text          : #e6e0d6;
+    --heading       : #f4efe7;
+    --muted         : #a39b90;
+    --border        : #363029;
     --accent        : #e0834a;
     --accent-hover  : #f0995f;
     --accent-soft   : rgba(224, 131, 74, 0.16);
-    --code-bg       : #1e293b;
+    --code-bg       : #221f1c;
     --selection     : rgba(224, 131, 74, 0.35);
 
     color-scheme: dark;

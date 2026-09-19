@@ -184,15 +184,15 @@ tags:
 
 ### Styles
 
-Look: ink navy headings, terracotta as the only accent, warm off-white background, Fraunces (headings) + Inter (everything else). No em dashes in copy.
+Look: warm charcoal text and headings (nothing blue, he rejected navy), terracotta as the only accent, warm off-white background, warm graphite dark mode, Fraunces (headings) + Inter (everything else). No em dashes, no arrow glyphs in copy.
 
 **Colour tokens** live in `_sass/theme/_default_light.scss` (light) and `_sass/theme/_default_dark.scss` (dark) as CSS custom properties: `--bg`, `--surface`, `--text`, `--heading`, `--muted`, `--border`, `--accent`, `--accent-hover`, `--accent-soft`, `--code-bg`. The theme's own `--global-*` names are mapped onto them in the light file. To change a colour, edit the token; never hardcode a hex in `_custom.scss`. The Sass variables at the top of both theme files must stay identical (both files are imported; the later one wins).
 
 **`_sass/_custom.scss`** is the only stylesheet to edit. It references tokens only, so dark mode needs no overrides there: do not add `html[data-theme="dark"]` blocks or `!important`. Sections in order: base, `.eyebrow` / `.pill` utilities, one 1200px rail, masthead, footer, sidebar, page content, listings, resources, practice sheets, buttons, home, responsive. Fonts load once in `_includes/head/custom.html` (not via `@import` in Sass).
 
-**Home page** is `_pages/home.html` with `layout: home` (`_layouts/home.html`, no sidebar). Its sections are hand-written HTML: hero, "Now", three door cards (counts pulled with Liquid), about. Update the "Now" block when a role changes.
+**Home page** is `_pages/home.html` with `layout: home` (`_layouts/home.html`, no theme sidebar). Layout: a sticky profile column on the left (photo, name, four linked affiliations under small-caps labels, two buttons, contact links) and a reading column on the right (lead paragraph, research description with supervisors linked, four most recent publications via Liquid, teaching + resources mini lists, "Beyond research" with the Estrellas del Sur quote last). Update the affiliations list in the aside when a role changes.
 
-Reusable classes: `.eyebrow` (small-caps section label; `h2.teaching-level` is styled the same), `.pill` (outlined tag, used for PDF / Slides / BibTeX links), `.button--solid|ghost|text` (home CTAs).
+Reusable classes: `.eyebrow` (small-caps section label; `h2.teaching-level` is styled the same), `.pill` (outlined tag, used for PDF / Slides / BibTeX links), `.button--solid|ghost` (home CTAs), `.more` (text link that closes a list).
 
 Do not edit vendor sass under `_sass/vendor/` or the theme internals in `_sass/include/`, `_sass/layout/`.
 
