@@ -112,15 +112,15 @@ The `markdown_generator/` directory contains Python scripts that auto-generate t
 
 ---
 
-#### Teaching resources
+#### `_data/resources.yml` — Teaching resources
 
-The **Resources** block on `/teaching/` is driven by `_data/teaching_resources.yml`:
+Student-facing notes and handouts. They live on their own page, `/resources/` (`_pages/resources.html`), which has a nav entry; `/teaching/` only carries a link to it. The list is driven by `_data/resources.yml`:
 
 ```yaml
 - title: "Resource title"
   course: "Mathematics"        # short label shown above the description
   description: "One sentence shown in the list."
-  url: /teaching/resources/slug/   # internal permalink, or an external URL / /files/x.pdf
+  url: /resources/slug/        # internal permalink, or an external URL / /files/x.pdf
 ```
 
 The handout itself is a normal page in `_pages/` (e.g. `_pages/resource-derivatives.md`) with a matching `permalink`.
@@ -217,7 +217,7 @@ npm run build:js
 | Add a talk | Create `_talks/YYYY-slug.md` |
 | Add a course | Create `_teaching/YYYY-slug.md` |
 | Add a project | Create `_portfolio/portfolio-N-slug.md` |
-| Add a teaching resource | Create `_pages/resource-slug.md` + entry in `_data/teaching_resources.yml` |
+| Add a teaching resource | Create `_pages/resource-slug.md` + entry in `_data/resources.yml` |
 | Update CV sections | Edit `_pages/cv.md` |
 | Change nav links | Edit `_config.yml` → `navigation` |
 | Change author info | Edit `_config.yml` → `author` block |

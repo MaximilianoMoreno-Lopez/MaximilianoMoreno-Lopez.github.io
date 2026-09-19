@@ -1,0 +1,27 @@
+---
+layout: archive
+title: "Resources"
+permalink: /resources/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p class="resource-intro">Notes and handouts I write for my students at Sciences Po. Free to use and share — if you spot a mistake, <a href="mailto:maximiliano.moreno-lopez@psemail.eu">tell me</a>.</p>
+
+{% if site.data.resources and site.data.resources.size > 0 %}
+<ul class="resource-list">
+  {% for resource in site.data.resources %}
+    {% if resource.url contains '://' %}
+      {% assign resource_href = resource.url %}
+    {% else %}
+      {% assign resource_href = resource.url | prepend: base_path %}
+    {% endif %}
+    <li class="resource-item">
+      <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
+      {% if resource.course %}<p class="resource-course">{{ resource.course }}</p>{% endif %}
+      {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}

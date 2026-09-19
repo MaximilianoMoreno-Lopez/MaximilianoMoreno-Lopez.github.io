@@ -1,7 +1,9 @@
 ---
 title: "Derivatives: A Refresher"
-permalink: /teaching/resources/derivatives/
+permalink: /resources/derivatives/
 author_profile: true
+redirect_from:
+  - /teaching/resources/derivatives/
 ---
 
 *Teaching resource — Mathematics, Sciences Po Paris.*
