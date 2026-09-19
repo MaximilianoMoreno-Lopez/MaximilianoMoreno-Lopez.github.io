@@ -511,3 +511,111 @@ code {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+/* --- Practice sheets (exercise grid with reveal-on-click solutions) --- */
+.practice-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.6rem 0 0;
+}
+
+.practice-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #0d9488;
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-radius: 6px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.practice-btn:hover {
+  background: #0d9488;
+  color: #fff;
+  border-color: #0d9488;
+}
+
+.practice-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 0.75rem;
+}
+
+.practice-item {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem 0.6rem 2.2rem;
+}
+
+.practice-n {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.practice-q {
+  font-size: 0.95rem;
+  color: #111827;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.practice-sol {
+  margin-top: 0.45rem;
+}
+
+.practice-sol summary {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0d9488;
+  cursor: pointer;
+  list-style: none;
+}
+
+.practice-sol summary::-webkit-details-marker { display: none; }
+.practice-sol summary::before { content: "+ "; }
+.practice-sol[open] summary::before { content: "\2212 "; }
+.practice-sol summary:hover { color: #0f766e; }
+
+.practice-a {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed #e5e7eb;
+  font-size: 0.95rem;
+  color: #374151;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+html[data-theme="dark"] .practice-item {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html[data-theme="dark"] .practice-q { color: #e2e8f0 !important; }
+
+html[data-theme="dark"] .practice-a {
+  color: #cbd5e1 !important;
+  border-top-color: #334155 !important;
+}
+
+html[data-theme="dark"] .practice-btn {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #5eead4 !important;
+}

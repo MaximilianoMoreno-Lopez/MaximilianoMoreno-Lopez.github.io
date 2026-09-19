@@ -8,3 +8,15 @@
   course: "Mathematics"
   description: "Tangency, the recipe, and what the multiplier really means: shadow prices, the envelope theorem and complementary slackness."
   url: /resources/lagrange-multipliers/
+- title: "Derivatives: 24 Warm-up Exercises"
+  course: "Mathematics"
+  description: "Constants, polynomials, two quotients and a run of square roots, with the solution one click away."
+  url: /resources/derivatives-warmup/
+- title: "100 Derivative Exercises (Almost No Chain Rule)"
+  course: "Mathematics"
+  description: "Drill for the product and quotient rules: powers, roots, logs and exponentials, 100 of them, all solved."
+  url: /resources/derivatives-100/
+- title: "Derivatives and Second Derivatives: 20 Exercises"
+  course: "Mathematics"
+  description: "Chain rule throughout, second derivatives in the back half. The hardest of the three sheets."
+  url: /resources/derivatives-second/
