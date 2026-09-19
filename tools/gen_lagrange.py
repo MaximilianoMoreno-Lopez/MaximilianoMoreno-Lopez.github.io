@@ -1,0 +1,301 @@
+"""Builds _pages/resource-lagrange-practice.html: constrained-optimisation exercises
+with step-by-step solutions behind a click.
+
+Statements and solution text are written here by hand; every numeric answer is
+re-derived with sympy in check() before the page is written, so a wrong number
+aborts the build. Convention throughout: L = f - lambda (g - c).
+
+Run:  pip install sympy && python tools/gen_lagrange.py
+"""
+import os, sys
+import sympy as sp
+
+x, y, z, lam, mu = sp.symbols("x y z lambda mu", real=True)
+xp, yp = sp.symbols("x y", positive=True)
+
+# --------------------------------------------------------------------------
+# Exercises. Each: level, statement (HTML + MathJax), solution (HTML + MathJax),
+# and a check: a callable returning True when sympy agrees with the stated answer.
+# --------------------------------------------------------------------------
+
+def stationary(f, gs, vars_, mults):
+    """Solve the first-order conditions of L = f - sum(mult*(g)) with g = 0."""
+    L = f - sum(m * g for m, g in zip(mults, gs))
+    eqs = [sp.diff(L, v) for v in vars_] + list(gs)
+    return sp.solve(eqs, list(vars_) + list(mults), dict=True)
+
+def has(sols, **want):
+    """True if one of the sympy solutions matches the claimed values (keyed by symbol name)."""
+    for s in sols:
+        byname = {sym.name: val for sym, val in s.items()}
+        if all(k in byname and sp.simplify(byname[k] - v) == 0 for k, v in want.items()):
+            return True
+    return False
+
+EX = []
+
+# ---------------------------------------------------------------- Starter
+EX.append(dict(level="Starter",
+statement=r"""Maximise \( f(x, y) = xy \) subject to \( x + y = 12 \). Find \( x^*, y^* \) and \( \lambda^* \).""",
+solution=r"""<p>Lagrangian: \( \mathcal{L} = xy - \lambda(x + y - 12) \).</p>
+\[ \mathcal{L}_x = y - \lambda = 0, \qquad \mathcal{L}_y = x - \lambda = 0, \qquad \mathcal{L}_\lambda = 12 - x - y = 0 \]
+<p>The first two give \( x = y = \lambda \). The constraint then gives \( 2x = 12 \).</p>
+\[ x^* = y^* = 6, \qquad \lambda^* = 6, \qquad f^* = 36 \]
+<p>Reading \( \lambda \): raising the right-hand side from 12 to 13 would raise the maximum by about 6. Check: \( 13^2/4 - 12^2/4 = 6.25 \).</p>""",
+check=lambda: has(stationary(x*y, [x + y - 12], (x, y), (lam,)), **{"x": 6, "y": 6, "lambda": 6})))
+
+EX.append(dict(level="Starter",
+statement=r"""Find the maximum and the minimum of \( f(x, y) = x + y \) on the circle \( x^2 + y^2 = 8 \).""",
+solution=r"""<p>\( \mathcal{L} = x + y - \lambda(x^2 + y^2 - 8) \).</p>
+\[ 1 - 2\lambda x = 0, \qquad 1 - 2\lambda y = 0, \qquad x^2 + y^2 = 8 \]
+<p>So \( x = y = 1/(2\lambda) \), and \( 2x^2 = 8 \) gives \( x = \pm 2 \).</p>
+\[ \text{Maximum at } (2, 2): f = 4,\ \lambda = \tfrac14. \qquad \text{Minimum at } (-2, -2): f = -4,\ \lambda = -\tfrac14. \]
+<p>The Lagrangian finds both. Deciding which is which is your job: evaluate \( f \) at each candidate, or note that the constraint set is a closed curve, so both a max and a min exist.</p>""",
+check=lambda: has(stationary(x + y, [x**2 + y**2 - 8], (x, y), (lam,)), **{"x": 2, "y": 2, "lambda": sp.Rational(1, 4)})
+             and has(stationary(x + y, [x**2 + y**2 - 8], (x, y), (lam,)), **{"x": -2, "y": -2})))
+
+EX.append(dict(level="Starter",
+statement=r"""Minimise \( x^2 + y^2 \) subject to \( x + 2y = 10 \). Interpret \( \lambda \).""",
+solution=r"""<p>\( \mathcal{L} = x^2 + y^2 - \lambda(x + 2y - 10) \).</p>
+\[ 2x = \lambda, \qquad 2y = 2\lambda, \qquad x + 2y = 10 \]
+<p>So \( x = \lambda/2 \) and \( y = \lambda \). Substituting: \( \lambda/2 + 2\lambda = 10 \), hence \( \lambda = 4 \).</p>
+\[ x^* = 2, \qquad y^* = 4, \qquad \lambda^* = 4, \qquad f^* = 20 \]
+<p>\( \lambda = 4 \) is the rate at which the minimum value rises if the constraint constant moves from 10 to 11. Geometrically this is the squared distance from the origin to the line, so \( (2, 4) \) is the foot of the perpendicular; note \( (2, 4) \) is proportional to the normal vector \( (1, 2) \).</p>""",
+check=lambda: has(stationary(x**2 + y**2, [x + 2*y - 10], (x, y), (lam,)), **{"x": 2, "y": 4, "lambda": 4})))
+
+EX.append(dict(level="Starter",
+statement=r"""A consumer has \( U(x, y) = x^{1/2} y^{1/2} \), prices \( p_x = 2 \), \( p_y = 1 \) and income \( 40 \). Find the demands and \( \lambda \).""",
+solution=r"""<p>\( \mathcal{L} = x^{1/2} y^{1/2} - \lambda(2x + y - 40) \).</p>
+\[ \tfrac12 x^{-1/2} y^{1/2} = 2\lambda, \qquad \tfrac12 x^{1/2} y^{-1/2} = \lambda \]
+<p>Divide the first by the second: \( y/x = 2 \), the MRS equals the price ratio. So \( y = 2x \), and the budget gives \( 2x + 2x = 40 \).</p>
+\[ x^* = 10, \qquad y^* = 20, \qquad \lambda^* = \tfrac12 \sqrt{20/10} \big/ 2 = \tfrac{\sqrt 2}{4} \approx 0.354 \]
+<p>With equal exponents the consumer spends half the income on each good: \( 2 \cdot 10 = 20 \) and \( 1 \cdot 20 = 20 \).</p>""",
+check=lambda: has(stationary(sp.sqrt(xp)*sp.sqrt(yp), [2*xp + yp - 40], (xp, yp), (lam,)), **{"x": 10, "y": 20, "lambda": sp.sqrt(2)/4})))
+
+EX.append(dict(level="Starter",
+statement=r"""Minimise the cost \( 3x + 2y \) of reaching the target \( xy = 24 \), with \( x, y > 0 \).""",
+solution=r"""<p>\( \mathcal{L} = 3x + 2y - \lambda(xy - 24) \).</p>
+\[ 3 = \lambda y, \qquad 2 = \lambda x, \qquad xy = 24 \]
+<p>Dividing: \( 3/2 = y/x \), so \( y = 1.5x \). Then \( 1.5x^2 = 24 \), \( x^2 = 16 \).</p>
+\[ x^* = 4, \qquad y^* = 6, \qquad \lambda^* = 3/y = \tfrac12, \qquad \text{cost} = 24 \]
+<p>\( \lambda = 1/2 \): one more unit of target costs about half a unit more. Sanity check with the target 25: cost is \( 2\sqrt{6 \cdot 25} \approx 24.49 \), a rise of about 0.49.</p>""",
+check=lambda: has(stationary(3*xp + 2*yp, [xp*yp - 24], (xp, yp), (lam,)), **{"x": 4, "y": 6, "lambda": sp.Rational(1, 2)})))
+
+EX.append(dict(level="Starter",
+statement=r"""Maximise \( f(x, y) = xy + x \) subject to \( x + y = 10 \).""",
+solution=r"""<p>\( \mathcal{L} = xy + x - \lambda(x + y - 10) \).</p>
+\[ y + 1 = \lambda, \qquad x = \lambda, \qquad x + y = 10 \]
+<p>So \( x = y + 1 \). Then \( (y + 1) + y = 10 \), \( y = 4.5 \).</p>
+\[ x^* = 5.5, \qquad y^* = 4.5, \qquad \lambda^* = 5.5, \qquad f^* = 30.25 \]
+<p>Compare with exercise 1: the extra \( +x \) in the objective tilts the solution towards \( x \), by exactly half a unit.</p>""",
+check=lambda: has(stationary(x*y + x, [x + y - 10], (x, y), (lam,)), **{"x": sp.Rational(11, 2), "y": sp.Rational(9, 2), "lambda": sp.Rational(11, 2)})))
+
+# ---------------------------------------------------------------- Intermediate
+EX.append(dict(level="Intermediate",
+statement=r"""Cobb-Douglas demand. Maximise \( U = x^{1/3} y^{2/3} \) subject to \( 2x + y = 90 \). Find the demands, the expenditure shares and \( \lambda \).""",
+solution=r"""<p>\( \mathcal{L} = x^{1/3} y^{2/3} - \lambda(2x + y - 90) \).</p>
+\[ \tfrac13 x^{-2/3} y^{2/3} = 2\lambda, \qquad \tfrac23 x^{1/3} y^{-1/3} = \lambda \]
+<p>Divide: \( \dfrac{y}{2x} = 2 \), so \( y = 4x \). Budget: \( 2x + 4x = 90 \).</p>
+\[ x^* = 15, \qquad y^* = 60 \]
+<p>Shares: \( 2 \cdot 15 = 30 \) on \( x \) (one third of 90) and \( 60 \) on \( y \) (two thirds). With Cobb-Douglas utility the exponents are the expenditure shares, whatever the prices.</p>
+\[ \lambda^* = \tfrac23 (15)^{1/3} (60)^{-1/3} = \tfrac23 \cdot 4^{-1/3} \approx 0.42 \]""",
+check=lambda: has(stationary(xp**sp.Rational(1,3)*yp**sp.Rational(2,3), [2*xp + yp - 90], (xp, yp), (lam,)), **{"x": 15, "y": 60, "lambda": sp.Rational(2,3)*sp.Integer(4)**sp.Rational(-1,3)})))
+
+EX.append(dict(level="Intermediate",
+statement=r"""Quasi-linear preferences. Maximise \( U = \ln x + y \) subject to \( x + 2y = 20 \).""",
+solution=r"""<p>\( \mathcal{L} = \ln x + y - \lambda(x + 2y - 20) \).</p>
+\[ \tfrac1x = \lambda, \qquad 1 = 2\lambda, \qquad x + 2y = 20 \]
+<p>The second condition pins \( \lambda = 1/2 \) directly, so \( x = 2 \). Then \( 2 + 2y = 20 \).</p>
+\[ x^* = 2, \qquad y^* = 9, \qquad \lambda^* = \tfrac12 \]
+<p>Notice that the demand for \( x \) does not depend on income: any extra euro goes entirely to \( y \). That is the signature of quasi-linear utility, and it is also why \( \lambda \), the marginal utility of income, is constant. The solution needs income at least \( 2 \) so that \( y \geq 0 \).</p>""",
+check=lambda: has(stationary(sp.log(xp) + yp, [xp + 2*yp - 20], (xp, yp), (lam,)), **{"x": 2, "y": 9, "lambda": sp.Rational(1,2)})))
+
+EX.append(dict(level="Intermediate",
+statement=r"""Cost minimisation. A firm with technology \( q = K^{1/2} L^{1/2} \) faces \( w = 4 \) (labour) and \( r = 1 \) (capital). Find the cheapest way to produce \( q = 10 \), the cost, and interpret \( \lambda \).""",
+solution=r"""<p>Minimise \( 4L + K \) subject to \( K^{1/2} L^{1/2} = 10 \). Lagrangian \( \mathcal{L} = 4L + K - \lambda(K^{1/2} L^{1/2} - 10) \).</p>
+\[ 4 = \lambda \tfrac12 K^{1/2} L^{-1/2}, \qquad 1 = \lambda \tfrac12 K^{-1/2} L^{1/2} \]
+<p>Divide: \( 4 = K/L \), the technical rate of substitution equals the input price ratio. So \( K = 4L \), and \( \sqrt{4L \cdot L} = 2L = 10 \).</p>
+\[ L^* = 5, \qquad K^* = 20, \qquad C^* = 4 \cdot 5 + 20 = 40, \qquad \lambda^* = 4 \]
+<p>\( \lambda = 4 \) is marginal cost: producing the 11th unit costs about 4 more. Here the technology has constant returns, so cost is exactly \( 4q \) and marginal cost equals average cost.</p>""",
+check=lambda: (lambda K, L: has(stationary(4*L + K, [sp.sqrt(K)*sp.sqrt(L) - 10], (K, L), (lam,)), **{"K": 20, "L": 5, "lambda": 4}))(*sp.symbols("K L", positive=True))))
+
+EX.append(dict(level="Intermediate",
+statement=r"""Expenditure minimisation. Find the cheapest bundle that reaches utility \( xy = 16 \) at prices \( p_x = 2 \), \( p_y = 8 \).""",
+solution=r"""<p>\( \mathcal{L} = 2x + 8y - \lambda(xy - 16) \).</p>
+\[ 2 = \lambda y, \qquad 8 = \lambda x, \qquad xy = 16 \]
+<p>Divide: \( 1/4 = y/x \), so \( x = 4y \). Then \( 4y^2 = 16 \).</p>
+\[ x^* = 8, \qquad y^* = 2, \qquad E^* = 16 + 16 = 32, \qquad \lambda^* = 2/y = 1 \]
+<p>\( \lambda \) here is the marginal cost of utility: reaching \( xy = 17 \) instead of 16 costs about one more euro. This is the dual of the utility-maximisation problem: the same tangency condition, read the other way round.</p>""",
+check=lambda: has(stationary(2*xp + 8*yp, [xp*yp - 16], (xp, yp), (lam,)), **{"x": 8, "y": 2, "lambda": 1})))
+
+EX.append(dict(level="Intermediate",
+statement=r"""Envelope theorem. Maximise \( xy \) subject to \( x + y = c \) for a general \( c > 0 \). Find the value function \( V(c) \) and check that \( V'(c) = \lambda^* \).""",
+solution=r"""<p>From the first-order conditions \( y = \lambda \), \( x = \lambda \), so \( x^* = y^* = c/2 \) and \( \lambda^* = c/2 \).</p>
+\[ V(c) = x^* y^* = \frac{c^2}{4}, \qquad V'(c) = \frac{c}{2} = \lambda^* \]
+<p>That is the envelope theorem in one line: the derivative of the optimal value with respect to the constraint constant is the multiplier. You did not need to know how \( x^* \) and \( y^* \) move with \( c \); those effects cancel at the optimum. At \( c = 12 \) this gives \( \lambda = 6 \), matching exercise 1.</p>""",
+check=lambda: (lambda c: has(stationary(x*y, [x + y - c], (x, y), (lam,)), **{"x": c/2, "y": c/2, "lambda": c/2}))(sp.symbols("c", positive=True))))
+
+EX.append(dict(level="Intermediate",
+statement=r"""A firm produces two goods with cost \( C(x, y) = 3x^2 + 2y^2 \) and must meet a quota \( x + y = 50 \). Find the cheapest split and the marginal cost of the quota.""",
+solution=r"""<p>\( \mathcal{L} = 3x^2 + 2y^2 - \lambda(x + y - 50) \).</p>
+\[ 6x = \lambda, \qquad 4y = \lambda, \qquad x + y = 50 \]
+<p>Equal marginal costs across the two goods: \( 6x = 4y \), so \( y = 1.5x \) and \( 2.5x = 50 \).</p>
+\[ x^* = 20, \qquad y^* = 30, \qquad C^* = 1200 + 1800 = 3000, \qquad \lambda^* = 120 \]
+<p>\( \lambda = 120 \): one more unit of quota costs the firm about 120, whichever good it comes from, because at the optimum both goods have the same marginal cost. Check: with a quota of 51, \( C^* = 3060 + 0.6 \approx 3120.6 \).</p>""",
+check=lambda: has(stationary(3*x**2 + 2*y**2, [x + y - 50], (x, y), (lam,)), **{"x": 20, "y": 30, "lambda": 120})))
+
+EX.append(dict(level="Intermediate",
+statement=r"""Three goods. Maximise \( U = xyz \) subject to \( x + 2y + 4z = 24 \).""",
+solution=r"""<p>\( \mathcal{L} = xyz - \lambda(x + 2y + 4z - 24) \).</p>
+\[ yz = \lambda, \qquad xz = 2\lambda, \qquad xy = 4\lambda \]
+<p>Dividing the second by the first: \( x/y = 2 \), so \( x = 2y \). Dividing the third by the first: \( x/z = 4 \), so \( x = 4z \). The budget becomes \( x + x + x = 24 \).</p>
+\[ x^* = 8, \qquad y^* = 4, \qquad z^* = 2, \qquad \lambda^* = yz = 8 \]
+<p>Each good takes a third of the budget (8 each), as it must with equal Cobb-Douglas exponents. Three variables, one constraint, and the method is unchanged: tangency conditions plus the constraint.</p>""",
+check=lambda: has(stationary(x*y*z, [x + 2*y + 4*z - 24], (x, y, z), (lam,)), **{"x": 8, "y": 4, "z": 2, "lambda": 8})))
+
+EX.append(dict(level="Intermediate",
+statement=r"""Maximise \( U = \sqrt{x} + \sqrt{y} \) subject to \( x + 4y = 20 \). Then verify the envelope theorem by computing \( V(m) \) for a general income \( m \).""",
+solution=r"""<p>\( \mathcal{L} = \sqrt x + \sqrt y - \lambda(x + 4y - 20) \).</p>
+\[ \frac{1}{2\sqrt x} = \lambda, \qquad \frac{1}{2\sqrt y} = 4\lambda \]
+<p>Divide: \( \sqrt x / \sqrt y = 4 \), so \( x = 16y \). Budget: \( 16y + 4y = 20 \).</p>
+\[ x^* = 16, \qquad y^* = 1, \qquad \lambda^* = \frac{1}{2 \cdot 4} = \frac18, \qquad U^* = 5 \]
+<p>For general \( m \): \( y = m/20 \), \( x = 4m/5 \), so \( V(m) = \sqrt{4m/5} + \sqrt{m/20} = \tfrac{\sqrt5}{2}\sqrt m \). Then \( V'(m) = \tfrac{\sqrt5}{4\sqrt m} \), and at \( m = 20 \) this is \( \tfrac{\sqrt5}{4\sqrt{20}} = \tfrac18 = \lambda^* \).</p>""",
+check=lambda: has(stationary(sp.sqrt(xp) + sp.sqrt(yp), [xp + 4*yp - 20], (xp, yp), (lam,)), **{"x": 16, "y": 1, "lambda": sp.Rational(1,8)})))
+
+# ---------------------------------------------------------------- Upper Intermediate
+EX.append(dict(level="Upper Intermediate",
+statement=r"""Two constraints. Minimise \( x^2 + y^2 + z^2 \) subject to \( x + y + z = 6 \) and \( x - z = 0 \).""",
+solution=r"""<p>One multiplier per constraint: \( \mathcal{L} = x^2 + y^2 + z^2 - \lambda(x + y + z - 6) - \mu(x - z) \).</p>
+\[ 2x = \lambda + \mu, \qquad 2y = \lambda, \qquad 2z = \lambda - \mu \]
+<p>The second constraint says \( x = z \), so the first and third conditions give \( \lambda + \mu = \lambda - \mu \), hence \( \mu = 0 \). Then \( x = y = z = \lambda/2 \) and the first constraint gives \( 3\lambda/2 = 6 \).</p>
+\[ x^* = y^* = z^* = 2, \qquad \lambda^* = 4, \qquad \mu^* = 0, \qquad f^* = 12 \]
+<p>\( \mu = 0 \) is telling you something: the point that minimises \( x^2 + y^2 + z^2 \) on the plane \( x + y + z = 6 \) already has \( x = z \). The second constraint costs nothing, so its shadow price is zero.</p>""",
+check=lambda: has(stationary(x**2 + y**2 + z**2, [x + y + z - 6, x - z], (x, y, z), (lam, mu)), **{"x": 2, "y": 2, "z": 2, "lambda": 4, "mu": 0})))
+
+EX.append(dict(level="Upper Intermediate",
+statement=r"""Inequality constraints. Maximise \( xy \) subject to \( x + y \leq 10 \) and \( x \leq 3 \), with \( x, y \geq 0 \). Use the Karush-Kuhn-Tucker conditions.""",
+solution=r"""<p>\( \mathcal{L} = xy - \lambda(x + y - 10) - \mu(x - 3) \), with \( \lambda, \mu \geq 0 \) and complementary slackness \( \lambda(x + y - 10) = 0 \), \( \mu(x - 3) = 0 \).</p>
+<p><strong>Guess.</strong> Ignore \( x \leq 3 \): the budget-only problem gives \( x = y = 5 \), which violates \( x \leq 3 \). So that constraint must bind: \( x = 3 \). Then \( y \) is chosen to use the whole budget, \( y = 7 \).</p>
+<p><strong>Check the multipliers.</strong> From \( \mathcal{L}_x = y - \lambda - \mu = 0 \) and \( \mathcal{L}_y = x - \lambda = 0 \):</p>
+\[ \lambda = x = 3, \qquad \mu = y - \lambda = 4 \]
+<p>Both non-negative, both constraints satisfied, both binding. The solution is \( (3, 7) \) with \( f = 21 \). Reading \( \mu = 4 \): letting \( x \) rise to 4 would raise the objective by roughly 4 (exactly: \( 4 \cdot 6 - 21 = 3 \); the multiplier is a marginal rate).</p>""",
+check=lambda: has(stationary(x*y, [x + y - 10, x - 3], (x, y), (lam, mu)), **{"x": 3, "y": 7, "lambda": 3, "mu": 4})))
+
+EX.append(dict(level="Upper Intermediate",
+statement=r"""A slack constraint. Maximise \( f(x, y) = -(x - 2)^2 - (y - 1)^2 \) subject to \( x + y \leq 10 \). Show that the constraint does not bind and find the multiplier.""",
+solution=r"""<p>Try the constraint slack first, \( \lambda = 0 \). The first-order conditions of \( f \) alone are \( -2(x - 2) = 0 \) and \( -2(y - 1) = 0 \), so \( (x, y) = (2, 1) \).</p>
+<p>Feasibility: \( 2 + 1 = 3 \leq 10 \). The constraint holds with room to spare, so complementary slackness \( \lambda(x + y - 10) = 0 \) is satisfied with \( \lambda = 0 \), and \( \lambda \geq 0 \) holds.</p>
+\[ x^* = 2, \qquad y^* = 1, \qquad \lambda^* = 0, \qquad f^* = 0 \]
+<p>A constraint that does not bind has no shadow price: relaxing \( 10 \) to \( 11 \) changes nothing. If instead the constraint had been \( x + y \leq 2 \), the unconstrained optimum would be infeasible and you would redo the problem with equality and a positive \( \lambda \).</p>""",
+check=lambda: sp.solve([sp.diff(-(x-2)**2 - (y-1)**2, x), sp.diff(-(x-2)**2 - (y-1)**2, y)], [x, y]) == {x: 2, y: 1}))
+
+EX.append(dict(level="Upper Intermediate",
+statement=r"""The convexity trap. Someone asks you to maximise \( 2x^2 + 3y^2 \) subject to \( x + y = 10 \). Find the stationary point of the Lagrangian and explain what it actually is. Then find the true maximum when \( x, y \geq 0 \).""",
+solution=r"""<p>\( \mathcal{L} = 2x^2 + 3y^2 - \lambda(x + y - 10) \) gives \( 4x = \lambda \), \( 6y = \lambda \), so \( x = 1.5y \) and \( 2.5y = 10 \).</p>
+\[ (x, y) = (6, 4), \qquad \lambda = 24, \qquad f = 72 + 48 = 120 \]
+<p>This is a <em>minimum</em>, not a maximum. The objective is convex, so along the line \( x + y = 10 \) it is a convex function of one variable, and its only stationary point is its lowest point. First-order conditions give candidates; they never tell you which kind.</p>
+<p>Without further restrictions the maximum does not exist: moving along the line towards \( (100, -90) \) makes \( f \) as large as you like. With \( x, y \geq 0 \) the feasible set is the segment from \( (10, 0) \) to \( (0, 10) \), and a convex function on a segment is maximised at an endpoint:</p>
+\[ f(10, 0) = 200, \qquad f(0, 10) = 300 \quad\Longrightarrow\quad \text{maximum at } (0, 10). \]
+<p>The Lagrangian does not find corner solutions; you have to check the boundary yourself.</p>""",
+check=lambda: has(stationary(2*x**2 + 3*y**2, [x + y - 10], (x, y), (lam,)), **{"x": 6, "y": 4, "lambda": 24})))
+
+EX.append(dict(level="Upper Intermediate",
+statement=r"""General expenditure function. Minimise \( p_x x + p_y y \) subject to \( x^{1/2} y^{1/2} = \bar u \). Find \( x^*, y^* \), the expenditure function \( E(p_x, p_y, \bar u) \), and show that \( \lambda^* = \partial E / \partial \bar u \).""",
+solution=r"""<p>\( \mathcal{L} = p_x x + p_y y - \lambda(x^{1/2} y^{1/2} - \bar u) \).</p>
+\[ p_x = \lambda \tfrac12 x^{-1/2} y^{1/2}, \qquad p_y = \lambda \tfrac12 x^{1/2} y^{-1/2} \]
+<p>Divide: \( p_x / p_y = y / x \), so \( y = (p_x/p_y)\, x \). The constraint gives \( x \sqrt{p_x / p_y} = \bar u \).</p>
+\[ x^* = \bar u \sqrt{\frac{p_y}{p_x}}, \qquad y^* = \bar u \sqrt{\frac{p_x}{p_y}}, \qquad E = p_x x^* + p_y y^* = 2\bar u \sqrt{p_x p_y} \]
+<p>From the first condition, \( \lambda^* = 2 p_x \sqrt{x^*/y^*} = 2 p_x \sqrt{p_y/p_x} = 2\sqrt{p_x p_y} \), and indeed \( \partial E / \partial \bar u = 2\sqrt{p_x p_y} \). The multiplier is the marginal cost of utility, and it is constant here because the utility function is homogeneous of degree one.</p>""",
+check=lambda: (lambda px, py, u: has(stationary(px*xp + py*yp, [sp.sqrt(xp)*sp.sqrt(yp) - u], (xp, yp), (lam,)), **{"x": u*sp.sqrt(py/px), "y": u*sp.sqrt(px/py), "lambda": 2*sp.sqrt(px*py)}))(*sp.symbols("p_x p_y ubar", positive=True))))
+
+EX.append(dict(level="Upper Intermediate",
+statement=r"""Interpretation. A planner maximises \( W = \ln x + \ln y \) subject to a resource constraint \( 3x + y = 60 \). Find the allocation and \( \lambda \). Then explain, in one sentence each, what \( \lambda \) means and what would happen to it if the resource constant rose to 120.""",
+solution=r"""<p>\( \mathcal{L} = \ln x + \ln y - \lambda(3x + y - 60) \).</p>
+\[ \tfrac1x = 3\lambda, \qquad \tfrac1y = \lambda, \qquad 3x + y = 60 \]
+<p>So \( y = 3x \), and \( 3x + 3x = 60 \).</p>
+\[ x^* = 10, \qquad y^* = 30, \qquad \lambda^* = \tfrac{1}{30}, \qquad W^* = \ln 300 \]
+<p><em>Meaning:</em> \( \lambda = 1/30 \) is the shadow value of the resource, the increase in welfare from one more unit of it (about 0.033 in log units).</p>
+<p><em>With 120 units:</em> the allocation doubles to \( (20, 60) \) and \( \lambda \) halves to \( 1/60 \). Each extra unit is worth less because both goods are already more abundant; diminishing marginal utility shows up as a falling shadow price. Check: \( W(120) - W(60) = \ln 4 \approx 1.39 \), and \( \int_{60}^{120} \tfrac{2}{c}\, dc = 2 \ln 2 \) since \( \lambda(c) = 2/c \).</p>""",
+check=lambda: has(stationary(sp.log(xp) + sp.log(yp), [3*xp + yp - 60], (xp, yp), (lam,)), **{"x": 10, "y": 30, "lambda": sp.Rational(1, 30)})))
+
+# --------------------------------------------------------------------------
+# Page
+# --------------------------------------------------------------------------
+HEAD = """---
+layout: archive
+title: "Lagrange Multipliers: Practice"
+permalink: /resources/lagrange-practice/
+---
+
+<p class="resource-intro">Twenty constrained-optimisation problems in three levels: numbers only, then the standard economic problems with parameters, then two constraints, inequalities and the traps. Every solution is worked in full. Convention throughout: \\( \\mathcal{L} = f - \\lambda\\,(g - c) \\), so \\( \\lambda \\) is the value of relaxing the constraint by one unit.</p>
+
+<p class="resource-intro">Set each one up on paper before opening the solution. The theory is in the
+<a href="/resources/lagrange-multipliers/">Lagrange multipliers note</a>; if the derivatives themselves are the problem, start with the
+<a href="/resources/derivatives/">derivatives refresher</a>.</p>
+
+<div class="practice practice--long" id="practice">
+  <div class="practice-bar">
+    <button type="button" class="practice-btn" data-all="open">Show all solutions</button>
+    <button type="button" class="practice-btn" data-all="close">Hide all</button>
+  </div>
+"""
+
+TAIL = """</div>
+
+<script>
+(function () {
+  var root = document.getElementById('practice');
+  if (!root) { return; }
+  function typeset(el) {
+    el.querySelectorAll('.tex2jax_ignore').forEach(function (n) { n.classList.remove('tex2jax_ignore'); });
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]); }
+  }
+  root.querySelectorAll('details.practice-sol').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open && !d.dataset.done) { d.dataset.done = '1'; typeset(d); }
+    });
+  });
+  root.querySelectorAll('.practice-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var open = b.dataset.all === 'open';
+      root.querySelectorAll('details.practice-sol').forEach(function (d) { d.dataset.done = '1'; d.open = open; });
+      if (open) { typeset(root); }
+    });
+  });
+})();
+</script>
+"""
+
+def build():
+    failures = [i for i, e in enumerate(EX, 1) if not e["check"]()]
+    if failures:
+        sys.exit("sympy disagrees with the stated answer of exercise(s): %s" % failures)
+    parts = [HEAD, "  {% raw %}\n"]
+    level = None
+    n = 0
+    for e in EX:
+        if e["level"] != level:
+            if level is not None:
+                parts.append("  </ol>\n")
+            level = e["level"]
+            parts.append('  <h2 class="eyebrow practice-level">%s</h2>\n  <ol class="practice-list practice-list--long">\n' % level)
+        n += 1
+        parts.append(
+            '    <li class="practice-item">\n'
+            '      <span class="practice-n">%d.</span>\n'
+            '      <div class="practice-q">%s</div>\n'
+            '      <details class="practice-sol"><summary>Solution</summary>\n'
+            '        <div class="practice-a tex2jax_ignore">%s</div>\n'
+            '      </details>\n'
+            '    </li>\n' % (n, e["statement"], e["solution"]))
+    parts.append("  </ol>\n  {% endraw %}\n")
+    parts.append(TAIL)
+    html = "".join(parts)
+    assert "{{" not in html.replace("{% raw %}", "").replace("{% endraw %}", ""), "Liquid clash"
+    out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "_pages", "resource-lagrange-practice.html")
+    with open(out, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(html)
+    print("wrote", out, "with", n, "exercises; all answers verified")
+
+if __name__ == "__main__":
+    build()

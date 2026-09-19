@@ -1,7 +1,6 @@
 ---
 title: "Lagrange Multipliers: Optimisation with Constraints"
 permalink: /resources/lagrange-multipliers/
-author_profile: true
 ---
 
 *Teaching resource for Mathematics, Sciences Po Paris.*
@@ -123,10 +122,54 @@ In practice: guess which constraints bind, solve, then check that your solution 
 
 ## Practice
 
-1. Maximise *f(x, y) = xy* subject to *x + y = 10*. Find *x\**, *y\** and *λ*, then redo it with *x + y = 11* and check that the change in the optimal value is *λ*.
-2. Minimise *x² + y²* subject to *x + 2y = 5*. Interpret *λ*.
-3. A consumer has *U(x, y) = ln x + 2 ln y* and income *m* at prices *pₓ, p_y*. Find the demands and the expenditure shares.
-4. Maximise *U = x^(1/3) y^(2/3)* subject to *4x + 2y = 60*. Then raise income to 61 and check that utility rises by roughly *λ*.
-5. A firm minimises *wL + rK* subject to *√(LK) = q*. Find the conditional factor demands and show that *λ* is marginal cost.
+Set each one up before opening the solution. Convention: *ℒ = f − λ(g − c)*, so *λ* is the value of relaxing the constraint by one unit.
+
+<div class="practice practice--long" id="practice">
+<ol class="practice-list practice-list--long">
+<li class="practice-item"><span class="practice-n">1.</span>
+<div class="practice-q">Maximise \( f(x, y) = xy \) subject to \( x + y = 10 \). Find \( x^*, y^* \) and \( \lambda \), then redo it with \( x + y = 11 \) and check that the change in the optimal value is close to \( \lambda \).</div>
+<details class="practice-sol"><summary>Solution</summary><div class="practice-a tex2jax_ignore">
+\[ y = \lambda, \qquad x = \lambda, \qquad x + y = 10 \quad\Longrightarrow\quad x^* = y^* = 5, \quad \lambda^* = 5, \quad f^* = 25 \]
+<p>With \( x + y = 11 \): \( x^* = y^* = 5.5 \) and \( f^* = 30.25 \). The value rose by \( 5.25 \), close to \( \lambda = 5 \). The multiplier is a derivative, so it is exact only for an infinitesimal change; here \( V(c) = c^2/4 \) and \( V'(10) = 5 \) exactly.</p>
+</div></details></li>
+<li class="practice-item"><span class="practice-n">2.</span>
+<div class="practice-q">Minimise \( x^2 + y^2 \) subject to \( x + 2y = 5 \). Interpret \( \lambda \).</div>
+<details class="practice-sol"><summary>Solution</summary><div class="practice-a tex2jax_ignore">
+\[ 2x = \lambda, \qquad 2y = 2\lambda, \qquad x + 2y = 5 \]
+<p>So \( x = \lambda/2 \), \( y = \lambda \), and \( \lambda/2 + 2\lambda = 5 \) gives \( \lambda = 2 \).</p>
+\[ x^* = 1, \qquad y^* = 2, \qquad \lambda^* = 2, \qquad f^* = 5 \]
+<p>\( \lambda = 2 \) is how fast the minimum rises if the constant 5 is raised by one unit: the squared distance from the origin to the line \( x + 2y = c \) is \( c^2/5 \), whose derivative at \( c = 5 \) is \( 2 \).</p>
+</div></details></li>
+<li class="practice-item"><span class="practice-n">3.</span>
+<div class="practice-q">A consumer has \( U(x, y) = \ln x + 2 \ln y \) and income \( m \) at prices \( p_x, p_y \). Find the demands and the expenditure shares.</div>
+<details class="practice-sol"><summary>Solution</summary><div class="practice-a tex2jax_ignore">
+\[ \frac{1}{x} = \lambda p_x, \qquad \frac{2}{y} = \lambda p_y, \qquad p_x x + p_y y = m \]
+<p>From the first two, \( p_x x = 1/\lambda \) and \( p_y y = 2/\lambda \), so expenditure on \( y \) is twice expenditure on \( x \). The budget gives \( 3/\lambda = m \), so \( \lambda = 3/m \).</p>
+\[ x^* = \frac{m}{3p_x}, \qquad y^* = \frac{2m}{3p_y} \]
+<p>Shares: one third on \( x \), two thirds on \( y \), whatever the prices. This is Cobb-Douglas in disguise: \( \ln x + 2\ln y = \ln(xy^2) \), a monotone transformation of \( x y^2 \), whose exponents \( 1 \) and \( 2 \) give shares \( 1/3 \) and \( 2/3 \).</p>
+</div></details></li>
+<li class="practice-item"><span class="practice-n">4.</span>
+<div class="practice-q">Maximise \( U = x^{1/3} y^{2/3} \) subject to \( 4x + 2y = 60 \). Then raise income to 61 and check that utility rises by roughly \( \lambda \).</div>
+<details class="practice-sol"><summary>Solution</summary><div class="practice-a tex2jax_ignore">
+<p>Tangency: \( \dfrac{MU_x}{MU_y} = \dfrac{y}{2x} = \dfrac{4}{2} \), so \( y = 4x \). Budget: \( 4x + 8x = 60 \).</p>
+\[ x^* = 5, \qquad y^* = 20, \qquad \lambda^* = \frac{MU_x}{p_x} = \frac{\tfrac13 (20/5)^{2/3}}{4} = \frac{2^{1/3}}{6} \approx 0.21 \]
+<p>With income 61 the shares stay one third and two thirds: \( x = 61/12 \), \( y = 61/3 \), and \( U \) goes from \( 2000^{1/3} \approx 12.599 \) to about \( 12.809 \). The rise, \( 0.210 \), matches \( \lambda \) to three decimals.</p>
+</div></details></li>
+<li class="practice-item"><span class="practice-n">5.</span>
+<div class="practice-q">A firm minimises \( wL + rK \) subject to \( \sqrt{LK} = q \). Find the conditional factor demands and show that \( \lambda \) is marginal cost.</div>
+<details class="practice-sol"><summary>Solution</summary><div class="practice-a tex2jax_ignore">
+\[ w = \lambda \frac{K}{2\sqrt{LK}}, \qquad r = \lambda \frac{L}{2\sqrt{LK}} \]
+<p>Divide: \( w/r = K/L \), so \( K = (w/r)L \). The constraint \( \sqrt{L \cdot (w/r) L} = q \) gives \( L\sqrt{w/r} = q \).</p>
+\[ L^* = q\sqrt{\frac{r}{w}}, \qquad K^* = q\sqrt{\frac{w}{r}}, \qquad C(q) = wL^* + rK^* = 2q\sqrt{wr} \]
+<p>Marginal cost is \( C'(q) = 2\sqrt{wr} \). From the first condition, \( \lambda = 2w\sqrt{LK}/K = 2w\sqrt{L/K} = 2w\sqrt{r/w} = 2\sqrt{wr} \). Same number: the multiplier on the output constraint is the marginal cost of output.</p>
+</div></details></li>
+</ol>
+</div>
+
+{% include practice-reveal.html %}
+
+### More practice
+
+[Twenty more problems](/resources/lagrange-practice/) in three levels, from numbers-only warm-ups to two constraints, Kuhn-Tucker and the convexity trap, all worked in full.
 
 Found a mistake, or want another topic here? [Email me](mailto:maximiliano.moreno-lopez@psemail.eu).

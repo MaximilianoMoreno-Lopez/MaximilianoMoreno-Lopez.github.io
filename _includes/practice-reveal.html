@@ -1,0 +1,24 @@
+<script>
+(function () {
+  /* Solutions sit inside closed <details>; MathJax mis-measures hidden maths, so
+     each one is kept out of the first pass (tex2jax_ignore) and typeset on open. */
+  var root = document.getElementById('practice');
+  if (!root) { return; }
+  function typeset(el) {
+    el.querySelectorAll('.tex2jax_ignore').forEach(function (n) { n.classList.remove('tex2jax_ignore'); });
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]); }
+  }
+  root.querySelectorAll('details.practice-sol').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open && !d.dataset.done) { d.dataset.done = '1'; typeset(d); }
+    });
+  });
+  root.querySelectorAll('.practice-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var open = b.dataset.all === 'open';
+      root.querySelectorAll('details.practice-sol').forEach(function (d) { d.dataset.done = '1'; d.open = open; });
+      if (open) { typeset(root); }
+    });
+  });
+})();
+</script>
