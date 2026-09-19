@@ -238,7 +238,8 @@ npm run build:js
 | Update CV sections | Edit `_pages/cv.md` |
 | Change nav links | Edit `_config.yml` → `navigation` |
 | Change author info | Edit `_config.yml` → `author` block |
-| Change site colors/fonts | Edit `_sass/_custom.scss` |
+| Change site colors/fonts | Edit the tokens in `_sass/theme/_default_light.scss` / `_default_dark.scss`, then `_sass/_custom.scss` |
+| Regenerate the favicon (MML monogram) | `python tools/make_favicon.py` (needs fonttools + pillow; downloads Fraunces itself) |
 | Add a blog post | Create `_posts/YYYY-MM-DD-slug.md` |
 
 ---
