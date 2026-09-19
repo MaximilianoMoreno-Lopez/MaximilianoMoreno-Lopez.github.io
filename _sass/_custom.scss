@@ -593,7 +593,7 @@ a.venue-link:hover { color: var(--accent); }
   padding: 0.3rem 0;
   font-size: 0.85rem;
 }
-.resource-child::before { content: "3"; color: var(--accent); }
+.resource-child::before { content: "–"; color: var(--accent); }
 .resource-child > a { font-weight: 500; color: var(--heading); }
 .resource-child > a:hover { color: var(--accent); }
 .resource-child__desc { color: var(--muted); }
