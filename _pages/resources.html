@@ -6,10 +6,10 @@ permalink: /resources/
 
 {% include base_path %}
 
-<p class="resource-intro">Notes and handouts I write for my students at Sciences Po. Free to use and share. If you spot a mistake, <a href="mailto:maximiliano.moreno-lopez@psemail.eu">tell me</a>. Practice sheets sit under the note they belong to, from starter to upper intermediate.</p>
+<p class="resource-intro">Notes and handouts I write for my students at Sciences Po, in Microeconomics and Mathematics. Free to use and share. If you spot a mistake, <a href="mailto:maximiliano.moreno-lopez@psemail.eu">tell me</a>. Practice sheets sit under the note they belong to, from starter to upper intermediate.</p>
 
 {% comment %} Sections appear in this order; a course with no resources is skipped. {% endcomment %}
-{% assign course_order = "Mathematics,Economics" | split: "," %}
+{% assign course_order = "Microeconomics,Mathematics,Economics" | split: "," %}
 
 {% for course in course_order %}
   {% assign items = site.data.resources | where: "course", course %}

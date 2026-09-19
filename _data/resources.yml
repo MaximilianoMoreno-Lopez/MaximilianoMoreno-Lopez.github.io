@@ -22,6 +22,16 @@
   course: "Mathematics"
   description: "20 exercises with the chain rule and second derivatives."
   url: /resources/derivatives-second/
+- id: partials
+  title: "Partial Derivatives and Optimisation in Two Variables"
+  course: "Mathematics"
+  description: "Treat the other variables as constants: marginal utility, MRS, second-order partials, the D test for maxima and minima, and the Problem Set 1 model as a derivative exercise."
+  url: /resources/partial-derivatives/
+- title: "Partial Derivatives Practice"
+  parent: partials
+  course: "Mathematics"
+  description: "22 exercises in three levels, from first partials to classifying critical points and the redistribution model."
+  url: /resources/partial-derivatives-practice/
 - id: lagrange
   title: "Lagrange Multipliers: Optimisation with Constraints"
   course: "Mathematics"
@@ -32,3 +42,7 @@
   course: "Mathematics"
   description: "20 problems in three levels: numbers only, the standard economic problems, then two constraints, Kuhn-Tucker and the traps."
   url: /resources/lagrange-practice/
+- title: "Maths for Intermediate Microeconomics"
+  course: "Microeconomics"
+  description: "Tutorial 1 companion: derivatives, logs, partials, optimisation, Lagrange, expectation and integrals, each with the essentials, a note and exercises, plus a study plan for the midterm."
+  url: /resources/micro-maths/

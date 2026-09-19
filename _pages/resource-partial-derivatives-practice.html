@@ -1,0 +1,216 @@
+---
+layout: archive
+title: "Partial Derivatives Practice"
+permalink: /resources/partial-derivatives-practice/
+---
+
+<p class="resource-intro">Twenty-two exercises in three levels: first-order partials to warm up, then second-order and cross partials, marginal rates of substitution, level curves and elasticities, then unconstrained optimisation in two variables with the second-order test, ending with the redistribution model from Problem Set 1 treated as a derivative exercise. Every solution is worked in full.</p>
+
+<p class="resource-intro">Work each one on paper first. The theory is in the
+<a href="/resources/partial-derivatives/">partial derivatives note</a>; if single-variable derivatives are the problem, start with the
+<a href="/resources/derivatives/">derivatives refresher</a>.</p>
+
+<div class="practice practice--long" id="practice">
+  <div class="practice-bar">
+    <button type="button" class="practice-btn" data-all="open">Show all solutions</button>
+    <button type="button" class="practice-btn" data-all="close">Hide all</button>
+  </div>
+  {% raw %}
+  <h2 class="eyebrow practice-level">Starter</h2>
+  <ol class="practice-list practice-list--long">
+    <li class="practice-item">
+      <span class="practice-n">1.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( f(x, y) = 3x^2 + 2xy + y^3 \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial f}{\partial x} = 6 x + 2 y, \qquad \frac{\partial f}{\partial y} = 2 x + 3 y^{2} \]<p>Treat \( y \) as a number when differentiating with respect to \( x \): the term \( y^3 \) is then a constant and disappears, while \( 2xy \) is \( (2y)\,x \), a constant times \( x \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">2.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( g(x_1, x_2) = x_1 x_2^2 - 3x_1 \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial g}{\partial x_{1}} = x_{2}^{2} - 3, \qquad \frac{\partial g}{\partial x_{2}} = 2 x_{1} x_{2} \]<p>The example from the Tutorial 1 slides. Setting both partials to zero gives \( x_2^2 = 3 \) and \( x_1 x_2 = 0 \), so \( x_1 = 0 \) and \( x_2 = \pm\sqrt 3 \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">3.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( U(x, y) = x^{1/2} y^{1/2} \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial U}{\partial x} = \frac{\sqrt{y}}{2 \sqrt{x}}, \qquad \frac{\partial U}{\partial y} = \frac{\sqrt{x}}{2 \sqrt{y}} \]<p>These are the marginal utilities. Both are positive and each one falls as its own good increases: diminishing marginal utility.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">4.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( f(x, y) = e^{2x} \ln y \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial f}{\partial x} = 2 e^{2 x} \ln{\left(y \right)}, \qquad \frac{\partial f}{\partial y} = \frac{e^{2 x}}{y} \]<p>Chain rule on \( e^{2x} \) for the \( x \)-partial (factor 2); \( \ln y \) rides along as a constant. For the \( y \)-partial, \( e^{2x} \) is the constant.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">5.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( f(x, y) = \dfrac{x}{x + y} \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial f}{\partial x} = \frac{y}{\left(x + y\right)^{2}}, \qquad \frac{\partial f}{\partial y} = - \frac{x}{\left(x + y\right)^{2}} \]<p>Quotient rule for the \( x \)-partial: \( \frac{(x+y) - x}{(x+y)^2} = \frac{y}{(x+y)^2} \). For the \( y \)-partial the numerator is a constant, so \( -x/(x+y)^2 \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">6.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( f(x, y) = \ln(x^2 + y^2) \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial f}{\partial x} = \frac{2 x}{x^{2} + y^{2}}, \qquad \frac{\partial f}{\partial y} = \frac{2 y}{x^{2} + y^{2}} \]<p>Chain rule: the derivative of \( \ln u \) is \( u'/u \), and \( u = x^2 + y^2 \) has \( u_x = 2x \), \( u_y = 2y \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">7.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( Q(K, L) = 10\,K^{0.3} L^{0.7} \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial Q}{\partial K} = \frac{3 L^{\frac{7}{10}}}{K^{\frac{7}{10}}}, \qquad \frac{\partial Q}{\partial L} = \frac{7 K^{\frac{3}{10}}}{L^{\frac{3}{10}}} \]<p>These are the marginal products of capital and labour. Notice \( \partial Q/\partial K = 0.3\,Q/K \) and \( \partial Q/\partial L = 0.7\,Q/L \): with Cobb-Douglas, the exponent is the output elasticity.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">8.</span>
+      <div class="practice-q">Find both first-order partial derivatives of \( f(x, y) = x\,e^{xy} \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial f}{\partial x} = \left(x y + 1\right) e^{x y}, \qquad \frac{\partial f}{\partial y} = x^{2} e^{x y} \]<p>Product rule and chain rule together for the \( x \)-partial: \( e^{xy} + x \cdot y e^{xy} = (1 + xy)e^{xy} \). For \( y \), only the exponent depends on \( y \).</p></div>
+      </details>
+    </li>
+  </ol>
+  <h2 class="eyebrow practice-level">Intermediate</h2>
+  <ol class="practice-list practice-list--long">
+    <li class="practice-item">
+      <span class="practice-n">9.</span>
+      <div class="practice-q">For \( f(x, y) = x^3 y - 2xy^2 + y \), compute all four second-order partial derivatives \( f_{xx}, f_{yy}, f_{xy}, f_{yx} \) and check that the two cross partials agree.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore"><p>First partials: \( f_x = 3x^2 y - 2y^2 \), \( f_y = x^3 - 4xy + 1 \).</p>
+\[ f_{xx} = 6xy, \qquad f_{yy} = -4x, \qquad f_{xy} = \frac{\partial f_x}{\partial y} = 3x^2 - 4y, \qquad f_{yx} = \frac{\partial f_y}{\partial x} = 3x^2 - 4y \]
+<p>The cross partials are equal, as Young's theorem promises for any function this smooth. In practice this is a free check on your algebra: if \( f_{xy} \neq f_{yx} \), one of your first partials is wrong.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">10.</span>
+      <div class="practice-q">For \( U(x, y) = \ln x + \ln y \), compute the second-order partials and say what their signs tell you about the shape of \( U \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ U_x = \frac1x, \quad U_y = \frac1y, \qquad U_{xx} = -\frac{1}{x^2}, \quad U_{yy} = -\frac{1}{y^2}, \quad U_{xy} = 0 \]
+<p>Both own second partials are negative: marginal utility of each good falls as you consume more of it. The cross partial is zero: more \( y \) does not change how much you enjoy an extra \( x \). Since \( U_{xx} U_{yy} - U_{xy}^2 = 1/(x^2 y^2) > 0 \) with \( U_{xx} < 0 \), the function is concave everywhere, which is what makes it well behaved in a consumer problem.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">11.</span>
+      <div class="practice-q">For \( U(x, y) = x^{1/3} y^{2/3} \), find the marginal rate of substitution \( MRS = U_x / U_y \) and evaluate it at \( (x, y) = (2, 4) \). Interpret the number.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ U_x = \tfrac13 x^{-2/3} y^{2/3}, \qquad U_y = \tfrac23 x^{1/3} y^{-1/3}, \qquad MRS = \frac{U_x}{U_y} = \frac{y}{2x} \]
+<p>At \( (2, 4) \): \( MRS = 4/4 = 1 \). Along the indifference curve through that bundle, giving up one unit of \( y \) is exactly compensated by one more unit of \( x \). Everything cancels down to \( y/(2x) \): with Cobb-Douglas \( x^a y^b \), the MRS is always \( \frac{a}{b}\cdot\frac{y}{x} \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">12.</span>
+      <div class="practice-q">For the quasi-linear utility \( U(x, y) = x + \ln y \), compute the MRS. What is special about it?</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ U_x = 1, \qquad U_y = \frac1y, \qquad MRS = \frac{U_x}{U_y} = y \]
+<p>The MRS depends only on \( y \), not on \( x \). Indifference curves are vertical shifts of one another, so at a given \( y \) they all have the same slope. In a consumer problem this means the demand for \( y \) does not depend on income once income is high enough: extra euros all go to \( x \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">13.</span>
+      <div class="practice-q">The level curve \( F(x, y) = x^2 + y^2 = 25 \) passes through \( (3, 4) \). Use partial derivatives to find the slope \( dy/dx \) of the curve at that point.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore"><p>Along a level curve \( F(x, y) = c \), the total differential is zero: \( F_x\,dx + F_y\,dy = 0 \), so</p>
+\[ \frac{dy}{dx} = -\frac{F_x}{F_y} = -\frac{2x}{2y} = -\frac{x}{y} = -\frac34 \text{ at } (3, 4). \]
+<p>This is the implicit function rule, and it is exactly how the slope of an indifference curve becomes \( -U_x/U_y = -MRS \). You never need to solve for \( y \) explicitly.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">14.</span>
+      <div class="practice-q">For \( Q(K, L) = K^{1/2} L^{1/2} \), compute the marginal products and verify Euler's identity \( K\,Q_K + L\,Q_L = Q \). What does it say about returns to scale?</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ Q_K = \tfrac12 K^{-1/2} L^{1/2} = \frac{Q}{2K}, \qquad Q_L = \tfrac12 K^{1/2} L^{-1/2} = \frac{Q}{2L} \]
+\[ K\,Q_K + L\,Q_L = \frac{Q}{2} + \frac{Q}{2} = Q \]
+<p>Euler's identity holds with coefficient 1 because the exponents sum to 1: the technology has constant returns to scale. Under competition each factor is paid its marginal product, so \( K\,Q_K + L\,Q_L = Q \) also says that paying capital and labour exhausts output exactly, leaving zero profit.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">15.</span>
+      <div class="practice-q">A demand function is \( Q(p, m) = A\,p^{-2} m \). Compute the price elasticity \( \frac{\partial Q}{\partial p}\frac{p}{Q} \) and the income elasticity \( \frac{\partial Q}{\partial m}\frac{m}{Q} \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial Q}{\partial p}\cdot\frac{p}{Q} = -2A p^{-3} m \cdot \frac{p}{A p^{-2} m} = -2, \qquad \frac{\partial Q}{\partial m}\cdot\frac{m}{Q} = A p^{-2} \cdot \frac{m}{A p^{-2} m} = 1 \]
+<p>Constant elasticities, equal to the exponents. Taking logs makes it obvious: \( \ln Q = \ln A - 2\ln p + \ln m \), and an elasticity is a partial derivative of \( \ln Q \) with respect to a log. This is why demand equations are so often estimated in logs.</p></div>
+      </details>
+    </li>
+  </ol>
+  <h2 class="eyebrow practice-level">Upper Intermediate</h2>
+  <ol class="practice-list practice-list--long">
+    <li class="practice-item">
+      <span class="practice-n">16.</span>
+      <div class="practice-q">Find and classify the critical point of \( f(y, z) = y^2 - 2y + z^2 \). (The example from the Tutorial 1 slides.)</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore"><p>First-order conditions:</p>
+\[ f_y = 2y - 2 = 0 \Rightarrow y = 1, \qquad f_z = 2z = 0 \Rightarrow z = 0 \]
+<p>Second-order conditions:</p>
+\[ f_{yy} = 2, \quad f_{zz} = 2, \quad f_{yz} = 0, \qquad D = f_{yy} f_{zz} - f_{yz}^2 = 4 > 0 \]
+<p>\( D > 0 \) with \( f_{yy} > 0 \): a minimum, at \( (1, 0) \), where \( f = -1 \). You can also see it by completing the square: \( f = (y - 1)^2 + z^2 - 1 \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">17.</span>
+      <div class="practice-q">Find and classify the critical point of \( f(x, y) = -x^2 - y^2 + 4x + 6y \), and give the value of \( f \) there.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ f_x = -2x + 4 = 0 \Rightarrow x = 2, \qquad f_y = -2y + 6 = 0 \Rightarrow y = 3 \]
+\[ f_{xx} = -2, \quad f_{yy} = -2, \quad f_{xy} = 0, \qquad D = 4 > 0 \]
+<p>\( D > 0 \) and \( f_{xx} < 0 \): a maximum, at \( (2, 3) \), with \( f = -4 - 9 + 8 + 18 = 13 \). The function is a downward paraboloid, so this is the global maximum, not just a local one.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">18.</span>
+      <div class="practice-q">Find and classify the critical point of \( f(x, y) = x^2 - y^2 + 2x \).</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ f_x = 2x + 2 = 0 \Rightarrow x = -1, \qquad f_y = -2y = 0 \Rightarrow y = 0 \]
+\[ f_{xx} = 2, \quad f_{yy} = -2, \quad f_{xy} = 0, \qquad D = (2)(-2) - 0 = -4 < 0 \]
+<p>\( D < 0 \): a saddle point at \( (-1, 0) \). Along the \( x \) direction the function curves up (\( f_{xx} > 0 \)), along \( y \) it curves down (\( f_{yy} < 0 \)). Setting the first-order conditions to zero found a flat point, but it is neither a maximum nor a minimum. This is why the second-order check is not optional.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">19.</span>
+      <div class="practice-q">Find all critical points of \( f(x, y) = x^3 - 3x + y^2 \) and classify each one.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ f_x = 3x^2 - 3 = 0 \Rightarrow x = \pm 1, \qquad f_y = 2y = 0 \Rightarrow y = 0 \]
+<p>Two critical points, \( (1, 0) \) and \( (-1, 0) \). Second-order partials: \( f_{xx} = 6x \), \( f_{yy} = 2 \), \( f_{xy} = 0 \), so \( D = 12x \), which changes sign with \( x \).</p>
+\[ (1, 0):\ D = 12 > 0,\ f_{xx} = 6 > 0 \Rightarrow \text{local minimum}, f = -2. \qquad (-1, 0):\ D = -12 < 0 \Rightarrow \text{saddle}. \]
+<p>The minimum is only local: \( f \to -\infty \) as \( x \to -\infty \). When \( D \) depends on the point, you must evaluate it at each critical point separately.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">20.</span>
+      <div class="practice-q">A firm sells two products with profit \( \pi(q_1, q_2) = 20q_1 + 30q_2 - q_1^2 - q_2^2 - q_1 q_2 \). Find the profit-maximising quantities, check the second-order conditions and compute the maximum profit.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \pi_1 = 20 - 2q_1 - q_2 = 0, \qquad \pi_2 = 30 - 2q_2 - q_1 = 0 \]
+<p>From the first, \( q_2 = 20 - 2q_1 \). Substituting: \( 30 - 40 + 4q_1 - q_1 = 0 \), so \( q_1 = 10/3 \) and \( q_2 = 40/3 \).</p>
+\[ \pi_{11} = -2, \quad \pi_{22} = -2, \quad \pi_{12} = -1, \qquad D = 4 - 1 = 3 > 0 \]
+<p>\( D > 0 \) and \( \pi_{11} < 0 \): a maximum. Profit there is \( \pi^* = 2100/9 \approx 233.3 \). The cross term \( -q_1 q_2 \) is what links the two decisions: producing more of one product lowers the marginal profit of the other, so each first-order condition contains both quantities and you have to solve them as a system.</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">21.</span>
+      <div class="practice-q">Problem Set 1, Problem 3, as a derivative exercise. An agent with income \( y_i \) gets \( V(\tau, y_i) = (1 - \tau)\,y_i + (\tau - \tau^2)\,\bar y \) from tax rate \( \tau \). Treating \( y_i \) and \( \bar y \) as parameters, show that \( V \) is strictly concave in \( \tau \), find the agent's preferred tax rate \( \tau_i^* \), and show that richer agents prefer lower taxes.</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore"><p>Differentiate with respect to \( \tau \) only; \( y_i \) and \( \bar y \) are constants here:</p>
+\[ \frac{\partial V}{\partial \tau} = -y_i + (1 - 2\tau)\,\bar y, \qquad \frac{\partial^2 V}{\partial \tau^2} = -2\bar y < 0 \]
+<p>The second derivative is negative for any \( \bar y > 0 \), so \( V \) is strictly concave in \( \tau \): preferences are single-peaked, and the first-order condition finds the peak.</p>
+\[ -y_i + (1 - 2\tau)\bar y = 0 \quad\Longrightarrow\quad \tau_i^* = \frac12\left(1 - \frac{y_i}{\bar y}\right) \]
+<p>valid when \( y_i \leq \bar y \); anyone richer than average wants \( \tau = 0 \). Differentiating the solution with respect to the parameter: \( \partial \tau_i^* / \partial y_i = -1/(2\bar y) < 0 \), so richer agents prefer lower taxes. With uniform income on \( [0, 1] \) the median voter has \( y_m = \bar y = 1/2 \), hence \( \tau^* = 0 \).</p></div>
+      </details>
+    </li>
+    <li class="practice-item">
+      <span class="practice-n">22.</span>
+      <div class="practice-q">Variation on Problem 3. Suppose the cost of taxation is \( c(\tau) = \tau^3 \) instead of \( \tau^2 \), so \( V(\tau, y_i) = (1 - \tau)\,y_i + (\tau - \tau^3)\,\bar y \). Is \( V \) still concave in \( \tau \) on \( [0, 1] \)? Find \( \tau_i^* \). If \( \bar y = 1/2 \) and the median income is \( y_m = 0.3 \), what tax rate does majority voting choose?</div>
+      <details class="practice-sol"><summary>Solution</summary>
+        <div class="practice-a tex2jax_ignore">\[ \frac{\partial V}{\partial \tau} = -y_i + (1 - 3\tau^2)\,\bar y, \qquad \frac{\partial^2 V}{\partial \tau^2} = -6\tau\,\bar y \leq 0 \text{ on } [0, 1] \]
+<p>Concave on the relevant range (strictly for \( \tau > 0 \)), so still single-peaked. First-order condition:</p>
+\[ 1 - 3\tau^2 = \frac{y_i}{\bar y} \quad\Longrightarrow\quad \tau_i^* = \sqrt{\frac{1}{3}\left(1 - \frac{y_i}{\bar y}\right)} \quad (y_i \leq \bar y) \]
+<p>Median voter: \( y_m / \bar y = 0.3/0.5 = 0.6 \), so \( \tau^* = \sqrt{0.4/3} = \sqrt{2/15} \approx 0.365 \). Two lessons from the change: the median is now below the mean (a more realistic income distribution), so the majority chooses a positive tax; and with a convex cost that starts flat, small taxes are cheap, so the preferred rate is higher than the quadratic case would give.</p></div>
+      </details>
+    </li>
+  </ol>
+  {% endraw %}
+</div>
+
+{% include practice-reveal.html %}

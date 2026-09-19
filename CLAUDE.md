@@ -127,13 +127,13 @@ The handout itself is a normal page in `_pages/` (e.g. `_pages/resource-derivati
 
 **Practice sheets are generated, not hand-written.** `_pages/resource-derivatives-warmup.html`,
 `resource-derivatives-100.html` and `resource-derivatives-second.html` are produced by
-`tools/gen_practice.py`, which holds the exercise lists and computes every solution with sympy. `_pages/resource-lagrange-practice.html` comes from `tools/gen_lagrange.py`, where statements and worked solutions are hand-written and every numeric answer is re-derived with sympy before the page is written.
+`tools/gen_practice.py`, which holds the exercise lists and computes every solution with sympy. `_pages/resource-lagrange-practice.html` comes from `tools/gen_lagrange.py` and `_pages/resource-partial-derivatives-practice.html` from `tools/gen_partials.py`, where statements and worked solutions are hand-written and every numeric answer is re-derived with sympy before the page is written.
 To add or fix an exercise, edit the list in that script and re-run it (`pip install sympy && python tools/gen_practice.py`);
 do not edit the generated HTML. Each exercise renders as a card with the solution behind a `<details>` toggle,
 typeset by MathJax only when opened (`tex2jax_ignore` keeps it out of the initial pass, since MathJax
 mis-measures hidden content). The same reveal script lives in `_includes/practice-reveal.html` for the short practice blocks inside the handouts (`_pages/resource-derivatives.md`, `resource-lagrange.md`): a `div.practice#practice` with `ol.practice-list--long`, one `details.practice-sol` per item, then `{% include practice-reveal.html %}`.
 
-`/resources/` groups entries under a heading per course. The section order is the `course_order` list at the top of `_pages/resources.html` (`"Mathematics,Economics"`); a course with no entries is skipped, and anything whose `course` is not on that list lands under **Other**.
+`/resources/` groups entries under a heading per course. The section order is the `course_order` list at the top of `_pages/resources.html` (`"Microeconomics,Mathematics,Economics"`; `_pages/resource-micro-maths.md` is the Tutorial 1 companion for the Sciences Po micro course and the page to send students who ask for maths help); a course with no entries is skipped, and anything whose `course` is not on that list lands under **Other**.
 
 **Maths on content pages:** MathJax 3 is loaded in `_includes/footer/custom.html`, but kramdown turns `$$...$$` into `<script type="math/tex">`, which MathJax 3 no longer reads — the formula silently disappears. Write display maths as a raw HTML block instead:
 
