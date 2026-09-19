@@ -184,17 +184,17 @@ tags:
 
 ### Styles
 
-**`_sass/_custom.scss`** — primary custom stylesheet
+Look: ink navy headings, terracotta as the only accent, warm off-white background, Fraunces (headings) + Inter (everything else). No em dashes in copy.
 
-- Typography: Inter (body), Source Serif 4 (headings)
-- Accent color: teal `#0d9488`
-- Text colors: `#111827` (primary), `#374151` (secondary), `#6b7280` (muted)
-- Do not edit vendor sass files under `_sass/vendor/`
+**Colour tokens** live in `_sass/theme/_default_light.scss` (light) and `_sass/theme/_default_dark.scss` (dark) as CSS custom properties: `--bg`, `--surface`, `--text`, `--heading`, `--muted`, `--border`, `--accent`, `--accent-hover`, `--accent-soft`, `--code-bg`. The theme's own `--global-*` names are mapped onto them in the light file. To change a colour, edit the token; never hardcode a hex in `_custom.scss`. The Sass variables at the top of both theme files must stay identical (both files are imported; the later one wins).
 
-Other sass files:
-- `_sass/_syntax.scss` — code block syntax highlighting
-- `_sass/_themes.scss` — light/dark theme variables
-- `_sass/include/`, `_sass/layout/`, `_sass/theme/` — theme internals (avoid editing)
+**`_sass/_custom.scss`** is the only stylesheet to edit. It references tokens only, so dark mode needs no overrides there: do not add `html[data-theme="dark"]` blocks or `!important`. Sections in order: base, `.eyebrow` / `.pill` utilities, one 1200px rail, masthead, footer, sidebar, page content, listings, resources, practice sheets, buttons, home, responsive. Fonts load once in `_includes/head/custom.html` (not via `@import` in Sass).
+
+**Home page** is `_pages/home.html` with `layout: home` (`_layouts/home.html`, no sidebar). Its sections are hand-written HTML: hero, "Now", three door cards (counts pulled with Liquid), about. Update the "Now" block when a role changes.
+
+Reusable classes: `.eyebrow` (small-caps section label; `h2.teaching-level` is styled the same), `.pill` (outlined tag, used for PDF / Slides / BibTeX links), `.button--solid|ghost|text` (home CTAs).
+
+Do not edit vendor sass under `_sass/vendor/` or the theme internals in `_sass/include/`, `_sass/layout/`.
 
 ---
 

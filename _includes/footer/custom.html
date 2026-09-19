@@ -23,7 +23,8 @@
 <!-- Support for Mermaid -->
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({startOnLoad:true, theme:'default'});
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({startOnLoad:true, theme: dark ? 'dark' : 'neutral'});
     await mermaid.run({querySelector:'code.language-mermaid'});
 </script>
 
