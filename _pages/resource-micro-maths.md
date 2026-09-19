@@ -103,4 +103,4 @@ You will meet integrals when a model has a continuum of agents, as in Problem Se
 4. Read the [Lagrange note](/resources/lagrange-multipliers/) and do the Starter and Intermediate problems.
 5. Redo Problem Set 1, Problem 3, with the book closed.
 
-If you get stuck anywhere, [email me](mailto:maximiliano.moreno-lopez@psemail.eu) with the exercise number and what you tried. That is much more useful to both of us than "I don't understand derivatives".
+If you get stuck anywhere, [email me](mailto:maximiliano.moreno-lopez@psemail.eu) with the exercise number and what you tried. That is much more useful to both of us than "I don't understand derivatives" :')
