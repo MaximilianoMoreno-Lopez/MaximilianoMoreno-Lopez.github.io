@@ -167,6 +167,15 @@ body::before {
   color: #0d9488;
 }
 
+/* Employer line: its icon sits outside the link, so the theme's
+   display:block would drop the text onto the next line */
+.author__urls li > i + a {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
 /* --- Links --- */
 a {
   color: #0d9488;

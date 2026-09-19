@@ -4,3 +4,7 @@
   course: "Mathematics"
   description: "What a derivative measures, the rules you need, and how economists use them: marginal cost, elasticity, optimisation."
   url: /resources/derivatives/
+- title: "Lagrange Multipliers: Optimisation with Constraints"
+  course: "Mathematics"
+  description: "Tangency, the recipe, and what the multiplier really means: shadow prices, the envelope theorem and complementary slackness."
+  url: /resources/lagrange-multipliers/

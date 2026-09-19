@@ -133,4 +133,6 @@ Differentiate, then state where each function is increasing:
 4. *f(x) = (2x − 5)/(x² + 1)*
 5. A firm has *C(q) = q³ − 6q² + 15q*. Find marginal cost, the output at which it is lowest, and the price at which a price-taking firm would choose that output.
 
+Once these are comfortable, the next step is [Lagrange multipliers](/resources/lagrange-multipliers/), which is how you optimise when a budget or a technology gets in the way.
+
 Found a mistake, or want another topic here? [Email me](mailto:maximiliano.moreno-lopez@psemail.eu).
