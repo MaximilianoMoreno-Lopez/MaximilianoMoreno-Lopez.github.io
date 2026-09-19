@@ -1,0 +1,87 @@
+---
+layout: home
+permalink: /
+title: "Maximiliano Moreno-López"
+author_profile: false
+redirect_from:
+  - /about/
+  - /about.html
+---
+
+{% include base_path %}
+
+<section class="hero">
+  <div class="hero__text">
+    <p class="eyebrow">Economist · PhD candidate, Paris School of Economics</p>
+    <h1 class="hero__title">Who pays for the climate transition, and how to make it fair.</h1>
+    <p class="hero__lede">I study the distributional effects of climate and energy policy: how measures like the EU ETS2 land on households across incomes and regions, using microsimulation and general-equilibrium models.</p>
+    <div class="hero__actions">
+      <a class="button button--solid" href="{{ base_path }}/publications/">Read the research <span class="arrow">&rarr;</span></a>
+      <a class="button button--ghost" href="{{ base_path }}/cv/">Curriculum vitae</a>
+      <a class="button button--text" href="mailto:{{ site.author.email }}">Email</a>
+    </div>
+  </div>
+  <figure class="hero__photo">
+    <img src="{{ base_path }}/images/maxi-hero.jpg" alt="Maximiliano Moreno-López" width="960" height="1200" fetchpriority="high">
+  </figure>
+</section>
+
+<section class="home__section">
+  <p class="eyebrow">Now</p>
+  <div class="now">
+    <div class="now__item">
+      <span class="now__role">PhD candidate</span>
+      <span class="now__where"><a href="https://www.parisschoolofeconomics.eu/en/">Paris School of Economics</a> · Université Paris 1 Panthéon-Sorbonne</span>
+      <p>Fundación Ramón Areces fellow. Supervised by <a href="https://lucaschancel.com/en/">Lucas Chancel</a>, <a href="https://www.parisschoolofeconomics.eu/personnes/katheline-schubert/">Katheline Schubert</a> and <a href="https://www.parisschoolofeconomics.eu/personnes/mouez-fodha/">Mouez Fodha</a>.</p>
+    </div>
+    <div class="now__item">
+      <span class="now__role">Lecturer</span>
+      <span class="now__where"><a href="https://www.sciencespo.fr">Sciences Po Paris</a></span>
+      <p>Mathematics; Microeconomics: Information, Design, and Institutions; Economics I.</p>
+    </div>
+    <div class="now__item">
+      <span class="now__role">PhD Fellow</span>
+      <span class="now__where">French Ministry for the Ecological Transition</span>
+      <p>Macroeconomic simulations of climate policy at the General Commission for Sustainable Development. Previously at the Bank of Spain and the Spanish Economic and Social Council.</p>
+    </div>
+  </div>
+  <p class="motto">The motto at PSE is economics serving society. It is as good a summary as any of what I try to do.</p>
+</section>
+
+<section class="home__section">
+  {% assign pubs = site.publications | sort: "date" | reverse %}
+  {% assign courses = site.teaching | sort: "date" | reverse %}
+  <div class="doors">
+    <a class="door" href="{{ base_path }}/publications/">
+      <h2 class="door__title">Research <span class="arrow">&rarr;</span></h2>
+      <p class="door__lead">{{ site.publications | size }} papers and policy reports on climate policy, inequality and the energy transition.</p>
+      <ul class="door__list">
+        {% for p in pubs limit: 2 %}<li>{{ p.title }}</li>{% endfor %}
+      </ul>
+    </a>
+    <a class="door" href="{{ base_path }}/teaching/">
+      <h2 class="door__title">Teaching <span class="arrow">&rarr;</span></h2>
+      <p class="door__lead">Sciences Po, Université Paris 1 and Universidad de Alcalá. Currently:</p>
+      <ul class="door__list">
+        {% for c in courses limit: 3 %}<li>{{ c.title }}</li>{% endfor %}
+      </ul>
+    </a>
+    <a class="door" href="{{ base_path }}/resources/">
+      <h2 class="door__title">Resources <span class="arrow">&rarr;</span></h2>
+      <p class="door__lead">Notes and 144 solved exercises for my students, free to use.</p>
+      <ul class="door__list">
+        <li>Derivatives and Lagrange multipliers, explained</li>
+        <li>Three practice sheets with click-to-reveal solutions</li>
+      </ul>
+    </a>
+  </div>
+</section>
+
+<section class="home__section about">
+  <p class="eyebrow">About</p>
+  <div class="about__body">
+    <p>I am a PhD candidate at the Paris School of Economics and Université Paris 1 Panthéon-Sorbonne, funded by the Fundación Ramón Areces. My research asks who bears the costs of climate and energy policy, and how much. Most of it combines microsimulation with computable general-equilibrium models to trace how policies such as the EU Emissions Trading System for buildings and transport (ETS2) reach households across the income distribution and across European regions. I am currently building a map of environmental inequality in France from micro-level data: how exposure to climate shocks and energy costs varies by income, geography and household type.</p>
+    <p>Before the PhD I worked as an economist at the <a href="https://www.bde.es/wbe/en/">Bank of Spain</a> and at the Spanish Economic and Social Council. Outside research I run <a href="https://estrellasdelsur.eu/">Estrellas del Sur</a>, a non-profit I founded in Córdoba that gives young people from disadvantaged backgrounds quality education, mentoring and a route to international opportunities and scholarships.</p>
+    <p class="about__quote">Because where you're born shouldn't determine how far you go.</p>
+  </div>
+</section>
