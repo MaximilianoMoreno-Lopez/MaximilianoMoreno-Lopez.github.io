@@ -576,17 +576,17 @@ a.venue-link:hover { color: var(--accent); }
   padding: 0;
 }
 .resource-child {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.2rem 0.7rem;
-  padding: 0.3rem 0;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  column-gap: 0.4rem;
+  padding: 0.4rem 0;
   font-size: 0.85rem;
+  line-height: 1.45;
 }
-.resource-child::before { content: "–"; color: var(--accent); }
+.resource-child::before { content: "–"; color: var(--accent); grid-row: 1 / span 2; }
 .resource-child > a { font-weight: 500; color: var(--heading); }
 .resource-child > a:hover { color: var(--accent); }
-.resource-child__desc { color: var(--muted); }
+.resource-child__desc { display: block; grid-column: 2; color: var(--muted); }
 
 .math-display {
   margin: 1.1rem 0;
