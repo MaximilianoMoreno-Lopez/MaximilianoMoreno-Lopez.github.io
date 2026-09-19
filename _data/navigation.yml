@@ -17,5 +17,8 @@ main:
   - title: "Resources"
     url: /resources/
 
+  - title: "Opportunities"
+    url: /opportunities/
+
   - title: "CV"
     url: /cv/

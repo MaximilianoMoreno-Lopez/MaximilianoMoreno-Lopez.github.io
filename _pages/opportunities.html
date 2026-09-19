@@ -1,0 +1,45 @@
+---
+layout: archive
+title: "Opportunities"
+permalink: /opportunities/
+---
+
+{% include base_path %}
+
+<p class="resource-intro">Programmes I keep pointing my students to: free travel, funded volunteering, scholarships for postgraduate study and traineeships. The ones open to anyone in Europe are described in English; the Spanish schemes, which require Spanish nationality, in Spanish. Deadlines shown here disappear once they have passed, so what you see is current. Where I have been through one myself, I say so.</p>
+
+{% assign now = site.time | date: "%s" | plus: 0 %}
+{% assign group_order = "Travel and volunteering,Scholarships,Traineeships" | split: "," %}
+
+{% for group in group_order %}
+  {% assign items = site.data.opportunities | where: "group", group %}
+  {% if items.size > 0 %}
+    <div class="resource-group">
+      <h2 class="teaching-level">{{ group }}</h2>
+      <ul class="opp-list">
+        {% for o in items %}
+          <li class="opp" lang="{{ o.lang }}">
+            <h3 class="opp__title"><a href="{{ o.url }}">{{ o.title }}</a> <span class="opp__lang">{{ o.lang | upcase }}</span></h3>
+            <p class="opp__what">{{ o.what }}</p>
+            <dl class="opp__facts">
+              <dt>{% if o.lang == "es" %}Para quién{% else %}Who{% endif %}</dt>
+              <dd>{{ o.who }}</dd>
+              <dt>{% if o.lang == "es" %}Cuándo{% else %}When{% endif %}</dt>
+              <dd>{{ o.when }}
+                {% if o.next_deadline %}
+                  {% assign dl = o.next_deadline | date: "%s" | plus: 0 %}
+                  {% if dl > now %}
+                    <span class="opp__deadline">{% if o.lang == "es" %}Próximo plazo:{% else %}Next round closes{% endif %} {{ o.next_deadline | date: "%-d %B %Y" }}</span>
+                  {% endif %}
+                {% endif %}
+              </dd>
+            </dl>
+            {% if o.note %}<p class="opp__note">{{ o.note }}</p>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endfor %}
+
+<p class="resource-intro opp__outro">Know one that belongs here? <a href="mailto:{{ site.author.email }}">Tell me</a>.</p>

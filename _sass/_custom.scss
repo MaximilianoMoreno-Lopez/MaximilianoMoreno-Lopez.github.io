@@ -684,6 +684,73 @@ a.venue-link:hover { color: var(--accent); }
 .page__content .practice-list--long { margin: 1rem 0 0; }
 .page__content .practice-item::before { content: none; }
 
+/* --- Opportunities -------------------------------------------------------- */
+.opp-list { list-style: none; margin: 0; padding: 0; max-width: 760px; }
+.opp { padding: 1.3rem 0; border-top: 1px solid var(--border); }
+.opp:last-child { border-bottom: 1px solid var(--border); }
+.opp__title {
+  font-family: $serif-display;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.45rem;
+  line-height: 1.3;
+}
+.opp__title a { color: var(--heading); }
+.opp__title a:hover { color: var(--accent); }
+.opp__lang {
+  display: inline-block;
+  vertical-align: 0.15em;
+  margin-left: 0.4rem;
+  font-family: $sans-ui;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+.opp__what { margin: 0 0 0.7rem; font-size: 0.92rem; line-height: 1.6; color: var(--text); }
+.opp__facts {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.3rem 1rem;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+.opp__facts dt {
+  font-family: $sans-ui;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+.opp__facts dd { margin: 0; color: var(--text); }
+.opp__deadline {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-family: $sans-ui;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 0.2em 0.7em;
+}
+.opp__note {
+  margin: 0.8rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent);
+  font-family: $serif-display;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--heading);
+}
+.opp__outro { margin-top: 2rem; }
+
 /* --- Buttons, tags, code ------------------------------------------------- */
 .btn {
   border-radius: 6px;

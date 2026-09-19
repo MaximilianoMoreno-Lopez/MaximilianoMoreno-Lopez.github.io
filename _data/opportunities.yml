@@ -1,0 +1,60 @@
+# Opportunities listed on /opportunities/, grouped by `group` in the order of
+# group_order in _pages/opportunities.html.
+#
+# Fields
+#   title, url        name and official page
+#   lang              "en" or "es": programmes open to everyone are written in English,
+#                     Spanish schemes (Spanish nationality required) in Spanish
+#   what              one or two sentences: what you get
+#   who               eligibility in one line
+#   when              how the calendar works (recurring text, never a hard date)
+#   next_deadline     optional YYYY-MM-DD; shown as "next round closes ..." only while
+#                     it is in the future, then disappears on its own
+#   note              optional personal line from Maxi, shown in italics
+- group: "Travel and volunteering"
+  title: "DiscoverEU"
+  url: https://youth.europa.eu/discovereu_en
+  lang: en
+  what: "A free rail pass to travel around Europe for up to 7 days within a one-month window, plus a discount card for hostels, culture and transport. You travel alone or with up to four friends."
+  who: "18-year-olds (you must be born in the year the round targets) living in an EU country or in Iceland, Liechtenstein, North Macedonia, Norway, Serbia or Türkiye."
+  when: "Two application rounds a year, usually in spring and autumn, each open for about two weeks. Applications are a short online quiz, not an essay."
+  next_deadline: 2026-10-15
+  note: "If you turn 18 this year, put the round dates in your calendar now. It is the easiest free thing the EU will ever give you."
+- group: "Travel and volunteering"
+  title: "European Solidarity Corps"
+  url: https://youth.europa.eu/solidarity_en
+  lang: en
+  what: "Volunteering abroad for two weeks to twelve months with an accredited organisation, alone or in a team, or funding for a solidarity project you run at home. Travel, accommodation, food, insurance and a monthly allowance are covered by the project."
+  who: "Ages 18 to 30 (up to 35 for humanitarian aid volunteering), living in an EU or partner country. No degree, language certificate or experience required."
+  when: "Register on the portal at any time; organisations then contact you, or you apply to the projects they post. Projects start all year round."
+  note: "I have run Erasmus+ youth projects with Estrellas del Sur; write to me if you want to know how these programmes look from the inside."
+- group: "Scholarships"
+  title: "Becas Fundación Ramón Areces para estudios de posgrado en el extranjero"
+  url: https://www.fundacionareces.es/fundacionareces/es/convocatorias/
+  lang: es
+  what: "Beca para cursar un máster o un doctorado fuera de España en Ciencias Sociales, con una línea específica de Economía. Cubre 2.100 € netos al mes, matrícula, un viaje de ida y vuelta al año y seguro médico. Un año para máster (prorrogable) y doce meses para doctorado, con hasta tres prórrogas."
+  who: "Nacionalidad española y título de grado, licenciatura o máster que dé acceso a los estudios solicitados."
+  when: "Convocatoria anual. Las solicitudes se presentan entre finales de enero y finales de febrero, y hay que acreditar la admisión definitiva al programa antes de finales de junio."
+  note: "Es la beca que financia mi doctorado en la Paris School of Economics. Si estás preparando la solicitud, escríbeme."
+- group: "Scholarships"
+  title: "Becas de posgrado en el extranjero de la Fundación \"la Caixa\""
+  url: https://fundacionlacaixa.org/es/becas-posgrado-extranjero
+  lang: es
+  what: "Un centenar de becas al año para máster, doctorado o investigación predoctoral en universidades del Espacio Europeo de Educación Superior, Norteamérica o Asia-Pacífico, hasta 24 meses. Todas las áreas salvo los MBA. Matrícula, dotación mensual y viajes cubiertos."
+  who: "Nacionalidad española o portuguesa, grado terminado en una universidad del país en los últimos años (la convocatoria fija la ventana exacta) y nivel avanzado del idioma de los estudios."
+  when: "Convocatoria anual con plazo a mediados de enero. El proceso tiene varias fases, con entrevistas en primavera, así que conviene empezar en otoño."
+- group: "Scholarships"
+  title: "Ayudas del Banco de España para estudios en economía y finanzas"
+  url: https://www.bde.es/wbe/es/sobre-banco/trabajar-banco/becas-investigacion-ayudas-bde/
+  lang: es
+  what: "Hasta diez ayudas al año para cursar un posgrado oficial en economía, finanzas o innovación tecnológica aplicada a estos campos, en España o en el extranjero. El programa incluye estancias temporales en el propio Banco para aplicar lo aprendido."
+  who: "Nacionalidad española y título de grado o licenciatura, o estar en el último curso de la carrera."
+  when: "Convocatoria anual para el curso siguiente; se publica en la página de becas e investigación del Banco, junto con las becas de investigación y las ayudas para tesis."
+  note: "Trabajé en el Banco de España entre 2024 y 2025; preguntadme lo que queráis sobre cómo es desde dentro."
+- group: "Traineeships"
+  title: "ECB Traineeship Programme"
+  url: https://www.ecb.europa.eu/careers/what-we-offer/traineeship/html/index.en.html
+  lang: en
+  what: "Paid traineeships of three to six months in Frankfurt, extendable to twelve, across economics, statistics, banking supervision and more. The grant is about 1,170 euros a month (higher for PhD-level posts), and the ECB pays your accommodation if you relocate from more than 50 km away."
+  who: "Nationals of EU member states who are students, including PhD students, or recent graduates."
+  when: "Vacancies are posted throughout the year on the ECB careers site; each has its own deadline. Set an alert rather than waiting for a season."

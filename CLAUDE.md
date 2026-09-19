@@ -147,6 +147,12 @@ Keep inline maths as plain Unicode text (*f′(x)*, *x²*, *∂U/∂x*).
 
 ---
 
+#### `_data/opportunities.yml` — Opportunities for students
+
+`/opportunities/` (`_pages/opportunities.html`) lists programmes for students: travel, volunteering, scholarships, traineeships. One YAML entry each; fields are documented at the top of the data file. Two rules keep it from going stale: `when` is always recurring text (never a hard date), and an optional `next_deadline` is shown only while in the future, then hides itself. Programmes open to everyone are written in English (`lang: en`), Spanish-nationality schemes in Spanish (`lang: es`); the template switches its labels accordingly. Groups render in the `group_order` list at the top of the page.
+
+---
+
 #### `_portfolio/` — Projects & Apps
 
 Filename convention: `portfolio-N-slug.md`
@@ -228,6 +234,7 @@ npm run build:js
 | Add a course | Create `_teaching/YYYY-slug.md` |
 | Add a project | Create `_portfolio/portfolio-N-slug.md` |
 | Add a teaching resource | Create `_pages/resource-slug.md` + entry in `_data/resources.yml` |
+| Add an opportunity (scholarship, programme) | Add an entry to `_data/opportunities.yml` (fields documented at the top of the file) |
 | Update CV sections | Edit `_pages/cv.md` |
 | Change nav links | Edit `_config.yml` → `navigation` |
 | Change author info | Edit `_config.yml` → `author` block |
