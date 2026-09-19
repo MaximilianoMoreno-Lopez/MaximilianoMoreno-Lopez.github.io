@@ -87,7 +87,7 @@ location: "City, Country"
 ---
 ```
 
-`date` is the **most recent** term taught (it also drives the sort order). For a course taught over several years, add an optional `since: "YYYY"` and the listings show a range (`2025–2026`) instead of a single year.
+`/teaching/` groups courses by the year of `date`, so a course taught in several years gets **one file per year** (e.g. `2025-sciencespo-mathematics.md` and `2026-sciencespo-mathematics.md`, with distinct permalinks). The optional `since: "YYYY"` field still renders a range next to a title but is no longer the preferred way.
 
 ---
 
