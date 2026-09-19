@@ -32,7 +32,7 @@ redirect_from:
 ## Research & Professional Experience
 
 * **Lecturer** — Sciences Po Paris *(Sep 2025 – present)*
-  * Mathematics; Economics I
+  * Mathematics; Economics I; Microeconomics: Information, Design, and Institutions
 
 * **PhD Fellow** — Ministère de la Transition Écologique, France *(Sep 2024 – present)*
   * Affiliated researcher at the General Commissioner for Sustainable Development
@@ -43,6 +43,9 @@ redirect_from:
 * **Research Assistant** — Ministère de la Transition Écologique *(Jan 2024 – Aug 2024)*
   * Macrosimulations of climate and energy transition policies
   * CGE modelling with GTAP (99% of world economy, 65 sectors)
+
+* **Teaching Assistant** — Université Paris 1 Panthéon-Sorbonne *(Spring 2024)*
+  * Microeconomics II: advanced game theory, general equilibrium and imperfect competition
 
 * **Predoctoral Fellow** — Universidad de Alcalá *(Sep 2022 – Sep 2023)*
   * Research on minimum wage, monopsony markets, poverty and inequality (with Olga Cantó, Mariña Fernández-Salgado & Sébastien Fontenay)

@@ -13,3 +13,24 @@ author_profile: true
     {% include archive-single.html %}
   {% endfor %}
 </div>
+
+{% if site.data.teaching_resources and site.data.teaching_resources.size > 0 %}
+<div class="teaching-section">
+  <h2 class="teaching-level">Resources</h2>
+  <p class="resource-intro">Notes and handouts I write for my students. Free to use and share.</p>
+  <ul class="resource-list">
+    {% for resource in site.data.teaching_resources %}
+      {% if resource.url contains '://' %}
+        {% assign resource_href = resource.url %}
+      {% else %}
+        {% assign resource_href = resource.url | prepend: base_path %}
+      {% endif %}
+      <li class="resource-item">
+        <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
+        {% if resource.course %}<p class="resource-course">{{ resource.course }}</p>{% endif %}
+        {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

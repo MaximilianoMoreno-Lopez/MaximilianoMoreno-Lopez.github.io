@@ -110,6 +110,31 @@ The `markdown_generator/` directory contains Python scripts that auto-generate t
 
 ---
 
+#### Teaching resources
+
+The **Resources** block on `/teaching/` is driven by `_data/teaching_resources.yml`:
+
+```yaml
+- title: "Resource title"
+  course: "Mathematics"        # short label shown above the description
+  description: "One sentence shown in the list."
+  url: /teaching/resources/slug/   # internal permalink, or an external URL / /files/x.pdf
+```
+
+The handout itself is a normal page in `_pages/` (e.g. `_pages/resource-derivatives.md`) with a matching `permalink`.
+
+**Maths on content pages:** MathJax 3 is loaded in `_includes/footer/custom.html`, but kramdown turns `$$...$$` into `<script type="math/tex">`, which MathJax 3 no longer reads — the formula silently disappears. Write display maths as a raw HTML block instead:
+
+```html
+<div class="math-display">
+\[ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} \]
+</div>
+```
+
+Keep inline maths as plain Unicode text (*f′(x)*, *x²*, *∂U/∂x*).
+
+---
+
 #### `_portfolio/` — Projects & Apps
 
 Filename convention: `portfolio-N-slug.md`
@@ -190,6 +215,7 @@ npm run build:js
 | Add a talk | Create `_talks/YYYY-slug.md` |
 | Add a course | Create `_teaching/YYYY-slug.md` |
 | Add a project | Create `_portfolio/portfolio-N-slug.md` |
+| Add a teaching resource | Create `_pages/resource-slug.md` + entry in `_data/teaching_resources.yml` |
 | Update CV sections | Edit `_pages/cv.md` |
 | Change nav links | Edit `_config.yml` → `navigation` |
 | Change author info | Edit `_config.yml` → `author` block |
