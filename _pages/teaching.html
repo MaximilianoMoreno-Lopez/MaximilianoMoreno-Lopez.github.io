@@ -2,20 +2,26 @@
 layout: archive
 title: "Teaching"
 permalink: /teaching/
-author_profile: true
 ---
 
 {% include base_path %}
 
-<div class="teaching-section">
-  <h2 class="teaching-level">Undergraduate</h2>
-  {% for post in site.teaching reversed %}
-    {% include archive-single.html %}
+<p class="archive__lead">Courses I have taught, most recent first. Notes and exercise sheets for students are under <a href="{{ base_path }}/resources/">Resources</a>.</p>
+
+{% assign by_year = site.teaching | sort: "date" | reverse | group_by_exp: "c", "c.date | date: '%Y'" %}
+<div class="timeline">
+  {% for g in by_year %}
+    <section class="timeline__row">
+      <h2 class="timeline__year">{{ g.name }}</h2>
+      <ul class="timeline__items">
+        {% for c in g.items %}
+          <li class="course">
+            <h3 class="course__title">{{ c.title }}{% if c.since and c.since != g.name %} <span class="course__span">{{ c.since }}–{{ g.name }}</span>{% endif %}</h3>
+            <p class="course__meta">{{ c.type }} · {% if c.venue_url %}<a href="{{ c.venue_url }}">{{ c.venue }}</a>{% else %}{{ c.venue }}{% endif %}{% if c.location %} · {{ c.location }}{% endif %}</p>
+            {% if c.excerpt %}<div class="course__desc">{{ c.excerpt | markdownify }}</div>{% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
   {% endfor %}
 </div>
-
-{% if site.data.resources and site.data.resources.size > 0 %}
-<p class="teaching-resources-link">
-  <a href="{{ base_path }}/resources/">Teaching materials and handouts for my students →</a>
-</p>
-{% endif %}

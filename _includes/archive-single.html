@@ -50,7 +50,7 @@
     {% endunless %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+      <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
     {% endif %}
 
     {% unless is_wip or is_teaching %}

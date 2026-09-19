@@ -2,12 +2,11 @@
 layout: archive
 title: "Resources"
 permalink: /resources/
-author_profile: true
 ---
 
 {% include base_path %}
 
-<p class="resource-intro">Notes and handouts I write for my students at Sciences Po. Free to use and share. If you spot a mistake, <a href="mailto:maximiliano.moreno-lopez@psemail.eu">tell me</a>.</p>
+<p class="resource-intro">Notes and handouts I write for my students at Sciences Po. Free to use and share. If you spot a mistake, <a href="mailto:maximiliano.moreno-lopez@psemail.eu">tell me</a>. Practice sheets sit under the note they belong to, from starter to upper intermediate.</p>
 
 {% comment %} Sections appear in this order; a course with no resources is skipped. {% endcomment %}
 {% assign course_order = "Mathematics,Economics" | split: "," %}
@@ -19,15 +18,35 @@ author_profile: true
       <h2 class="teaching-level">{{ course }}</h2>
       <ul class="resource-list">
         {% for resource in items %}
-          {% if resource.url contains '://' %}
-            {% assign resource_href = resource.url %}
-          {% else %}
-            {% assign resource_href = resource.url | prepend: base_path %}
-          {% endif %}
-          <li class="resource-item">
-            <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
-            {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
-          </li>
+          {% unless resource.parent %}
+            {% if resource.url contains '://' %}
+              {% assign resource_href = resource.url %}
+            {% else %}
+              {% assign resource_href = resource.url | prepend: base_path %}
+            {% endif %}
+            <li class="resource-item">
+              <h3 class="resource-title"><a href="{{ resource_href }}">{{ resource.title }}</a></h3>
+              {% if resource.description %}<p class="resource-description">{{ resource.description }}</p>{% endif %}
+              {% if resource.id %}
+                {% assign children = items | where: "parent", resource.id %}
+                {% if children.size > 0 %}
+                  <ul class="resource-children">
+                    {% for child in children %}
+                      {% if child.url contains '://' %}
+                        {% assign child_href = child.url %}
+                      {% else %}
+                        {% assign child_href = child.url | prepend: base_path %}
+                      {% endif %}
+                      <li class="resource-child">
+                        <a href="{{ child_href }}">{{ child.title }}</a>
+                        {% if child.description %}<span class="resource-child__desc">{{ child.description }}</span>{% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endif %}
+            </li>
+          {% endunless %}
         {% endfor %}
       </ul>
     </div>

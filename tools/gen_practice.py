@@ -263,14 +263,14 @@ OVERRIDE = {("C", 15): r"f''(x) = \frac{3x\left(x^{3} + 8\right)}{4\left(x^{3} +
 PAGES = {
     "A": dict(
         fname="resource-derivatives-warmup.html",
-        title="Derivatives: 24 Warm-up Exercises",
+        title="Derivatives Practice: Starter",
         permalink="/resources/derivatives-warmup/",
-        intro="Straight from the definition or from the basic rules. Constants, polynomials, "
+        intro="Twenty-four exercises straight from the definition or from the basic rules. Constants, polynomials, "
               "two quotients and a run of square roots. Start here if the rules are still new.",
     ),
     "B": dict(
         fname="resource-derivatives-100.html",
-        title="100 Derivative Exercises (Almost No Chain Rule)",
+        title="Derivatives Practice: Intermediate",
         permalink="/resources/derivatives-100/",
         intro="One hundred functions to differentiate, built out of powers, roots, logs, exponentials, "
               "products and quotients. Almost none of them need the chain rule, so this is the sheet "
@@ -278,7 +278,7 @@ PAGES = {
     ),
     "C": dict(
         fname="resource-derivatives-second.html",
-        title="Derivatives and Second Derivatives: 20 Exercises",
+        title="Derivatives Practice: Upper Intermediate",
         permalink="/resources/derivatives-second/",
         intro="Harder than the other two sheets: chain rule throughout, and the second half asks for "
               "the second derivative. Compute the first derivative for 1 to 10 and the second "
@@ -290,7 +290,6 @@ HEAD = """---
 layout: archive
 title: "%(title)s"
 permalink: %(permalink)s
-author_profile: true
 ---
 
 <p class="resource-intro">%(intro)s</p>

@@ -95,8 +95,8 @@ redirect_from:
       <div>
         <h2>Resources for students</h2>
         <ul class="mini">
-          {% for r in site.data.resources limit: 3 %}
-            <li><span>{{ r.title }}</span><span>{{ r.course }}</span></li>
+          {% for r in site.data.resources %}
+            {% unless r.parent %}<li><span>{{ r.title }}</span><span>{{ r.course }}</span></li>{% endunless %}
           {% endfor %}
         </ul>
         <a class="more" href="{{ base_path }}/resources/">All resources</a>

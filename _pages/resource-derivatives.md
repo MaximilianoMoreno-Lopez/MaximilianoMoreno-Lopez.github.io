@@ -133,13 +133,13 @@ Differentiate, then state where each function is increasing:
 4. *f(x) = (2x − 5)/(x² + 1)*
 5. A firm has *C(q) = q³ − 6q² + 15q*. Find marginal cost, the output at which it is lowest, and the price at which a price-taking firm would choose that output.
 
-### Full practice sheets
+### Practice sheets
 
-The sheets I hand out in class, with every solution one click away:
+Three levels, every solution one click away:
 
-- [24 warm-up exercises](/resources/derivatives-warmup/) for the definition and the basic rules.
-- [100 exercises with almost no chain rule](/resources/derivatives-100/) to drill the product and quotient rules.
-- [20 exercises with second derivatives](/resources/derivatives-second/), chain rule throughout.
+- [Starter](/resources/derivatives-warmup/): 24 exercises on the definition and the basic rules.
+- [Intermediate](/resources/derivatives-100/): 100 exercises on the product and quotient rules, almost no chain rule.
+- [Upper intermediate](/resources/derivatives-second/): 20 exercises with the chain rule and second derivatives.
 
 Once these are comfortable, the next step is [Lagrange multipliers](/resources/lagrange-multipliers/), which is how you optimise when a budget or a technology gets in the way.
 

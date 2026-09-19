@@ -1,22 +1,28 @@
-# Teaching resources listed on /resources/
+# Teaching resources listed on /resources/ (grouped by course, in the order of
+# course_order in _pages/resources.html). A resource with `parent: <id>` is
+# listed nested under the resource that carries that `id`.
 # url: internal permalink (e.g. /resources/derivatives/) or an external link / PDF in /files/
-- title: "Derivatives: A Refresher"
+- id: derivatives
+  title: "Derivatives: A Refresher"
   course: "Mathematics"
   description: "What a derivative measures, the rules you need, and how economists use them: marginal cost, elasticity, optimisation."
   url: /resources/derivatives/
+- title: "Derivatives Practice: Starter"
+  parent: derivatives
+  course: "Mathematics"
+  description: "24 exercises on the definition and the basic rules."
+  url: /resources/derivatives-warmup/
+- title: "Derivatives Practice: Intermediate"
+  parent: derivatives
+  course: "Mathematics"
+  description: "100 exercises on the product and quotient rules, almost no chain rule."
+  url: /resources/derivatives-100/
+- title: "Derivatives Practice: Upper Intermediate"
+  parent: derivatives
+  course: "Mathematics"
+  description: "20 exercises with the chain rule and second derivatives."
+  url: /resources/derivatives-second/
 - title: "Lagrange Multipliers: Optimisation with Constraints"
   course: "Mathematics"
   description: "Tangency, the recipe, and what the multiplier really means: shadow prices, the envelope theorem and complementary slackness."
   url: /resources/lagrange-multipliers/
-- title: "Derivatives: 24 Warm-up Exercises"
-  course: "Mathematics"
-  description: "Constants, polynomials, two quotients and a run of square roots, with the solution one click away."
-  url: /resources/derivatives-warmup/
-- title: "100 Derivative Exercises (Almost No Chain Rule)"
-  course: "Mathematics"
-  description: "Drill for the product and quotient rules: powers, roots, logs and exponentials, 100 of them, all solved."
-  url: /resources/derivatives-100/
-- title: "Derivatives and Second Derivatives: 20 Exercises"
-  course: "Mathematics"
-  description: "Chain rule throughout, second derivatives in the back half. The hardest of the three sheets."
-  url: /resources/derivatives-second/

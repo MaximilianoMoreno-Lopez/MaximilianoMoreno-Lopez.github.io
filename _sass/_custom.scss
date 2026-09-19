@@ -260,6 +260,17 @@ a.pill:hover {
 .author__urls a:hover { color: var(--accent); text-decoration: none; }
 .author__urls .fa-fw, .author__urls .ai-fw { color: var(--muted); }
 
+/* --- Inner pages: one centred column (the theme reserved 2/12 for a sidebar) */
+.archive,
+.page {
+  float: none;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* --- Page content -------------------------------------------------------- */
 .page__title {
   font-size: 2rem;
@@ -349,8 +360,69 @@ a.pill:hover {
   padding: 0.95rem 0;
   border-bottom: 1px solid var(--border);
 }
-.list__item:last-child .archive__item,
-.teaching-section .list__item:last-child .archive__item { border-bottom: 0; }
+.list__item:last-child .archive__item { border-bottom: 0; }
+
+.archive__item-title {
+  font-family: $sans-ui;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin: 0 0 0.2rem;
+  line-height: 1.4;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.archive__item-title a { color: var(--heading); text-decoration: none; }
+.archive__item-title a:hover { color: var(--accent); }
+.archive__item:hover .archive__item-title { text-decoration: none; }
+
+.archive__item-venue {
+  margin: 0 0 0.35rem;
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+a.venue-link { color: var(--text); font-weight: 500; }
+a.venue-link:hover { color: var(--accent); }
+
+.archive__item-excerpt {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.9;
+}
+.archive__item-excerpt p { margin: 0; }
+
+.archive__item-links {
+  margin: 0.55rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.archive__item-links .pill { margin-top: 0.4rem; margin-right: 0.35rem; }
+
+.teaching-resources-link { max-width: 760px; }
+
+.archive .eyebrow { margin-top: 2.4rem; }
+.archive .eyebrow:first-of-type,
+.archive .archive__lead + .eyebrow { margin-top: 1.4rem; }
+.archive .eyebrow + hr { margin: 0 0 1rem; }
+
+.archive__lead {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 1.2rem;
+}
+
+.list__item { margin-bottom: 0; }
+
+.archive__item {
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.list__item:last-child .archive__item { border-bottom: 0; }
 
 .archive__item-title {
   font-family: $sans-ui;
@@ -411,14 +483,6 @@ a.venue-link:hover { color: var(--accent); }
   grid-row: 3;
   margin-top: 0.15rem;
 }
-.teaching-section .archive__item-years {
-  grid-column: 2;
-  grid-row: 1;
-  font-size: 0.8rem;
-  color: var(--muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
 
 .teaching-resources-link {
   margin-top: 1.8rem;
@@ -427,6 +491,40 @@ a.venue-link:hover { color: var(--accent); }
   font-size: 0.875rem;
 }
 .teaching-resources-link a { font-weight: 500; }
+
+/* --- Teaching: courses grouped by year --------------------------------- */
+.timeline { margin-top: 0.5rem; }
+.timeline__row {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.timeline__row:last-child { border-bottom: 1px solid var(--border); }
+.timeline__year {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}
+.timeline__items { list-style: none; margin: 0; padding: 0; }
+.course + .course { margin-top: 1.2rem; }
+.course__title {
+  font-family: $sans-ui;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin: 0 0 0.15rem;
+  line-height: 1.4;
+}
+.course__span { font-weight: 400; font-size: 0.85rem; color: var(--muted); margin-left: 0.3rem; }
+.course__meta { margin: 0 0 0.3rem; font-size: 0.82rem; color: var(--muted); }
+.course__meta a { color: var(--text); font-weight: 500; }
+.course__meta a:hover { color: var(--accent); }
+.course__desc p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--text); opacity: 0.9; }
 
 /* --- Resources ----------------------------------------------------------- */
 .resource-intro {
@@ -480,6 +578,25 @@ a.venue-link:hover { color: var(--accent); }
   line-height: 1.6;
   margin: 0.25rem 0 0;
 }
+
+/* practice sheets nested under the note they belong to */
+.resource-children {
+  list-style: none;
+  margin: 0.7rem 0 0.2rem;
+  padding: 0;
+}
+.resource-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.7rem;
+  padding: 0.3rem 0;
+  font-size: 0.85rem;
+}
+.resource-child::before { content: "3"; color: var(--accent); }
+.resource-child > a { font-weight: 500; color: var(--heading); }
+.resource-child > a:hover { color: var(--accent); }
+.resource-child__desc { color: var(--muted); }
 
 .math-display {
   margin: 1.1rem 0;
@@ -780,9 +897,8 @@ code {
   .page__title { font-size: 1.6rem; }
   .page__content h2 { font-size: 1.2rem; }
   .two { grid-template-columns: 1fr; }
-  .teaching-section .archive__item { grid-template-columns: 1fr; }
-  .teaching-section .archive__item-years { grid-column: 1; grid-row: 3; }
-  .teaching-section .archive__item-excerpt { grid-row: 4; }
+  .timeline__row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .timeline__year { font-size: 0.7rem; font-family: $sans-ui; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
   .site-footer { grid-template-columns: 1fr auto; gap: 0.8rem; }
   .site-footer__motto { display: none; }
   .site-footer__role { display: none; }
